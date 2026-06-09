@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>연속성 — 캐러셀 peek</title>
+<style>
+  :root {
+    --bg:#EBEBEB; --ink:#5A5A5A; --mid:#8C8C8C; --dom:#B0B0B0;
+    --hi:#D2D2D2; --floor:#707070; --amber:#FFB919; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:40px;background:var(--bg);color:var(--ink);
+    font-family:system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;font-size:14px;line-height:1.5}
+  h1{font-size:18px;margin:0 0 24px;color:var(--floor)}
+  .stage{max-width:880px;margin:0 auto;background:var(--white);
+    border-radius:20px;padding:32px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+  ::-webkit-scrollbar{height:6px}::-webkit-scrollbar-thumb{background:var(--hi);border-radius:3px}
+</style></head>
+<body><h1>연속성 — 캐러셀 peek</h1><div class="stage">
+<p style="color:var(--floor);font-weight:600;margin-bottom:16px">캐러셀: 다음 카드를 살짝 잘라 보여 "옆으로 더 있음"을 암시</p>
+<div style="position:relative">
+  <div style="display:flex;gap:16px;overflow-x:auto;padding:8px 0 16px;scroll-snap-type:x mandatory">
+    <article style="flex:0 0 200px;background:#fff;border:1px solid var(--hi);border-radius:14px;padding:16px;scroll-snap-align:start">
+      <div style="height:120px;background:var(--dom);border-radius:8px"></div>
+      <h4 style="margin:12px 0 6px;font-size:13px">카드 제목 1</h4>
+      <p style="margin:0;color:var(--mid);font-size:12px">정렬된 축이 시선 동선을 매끄럽게 만든다.</p>
+    </article>
+    <article style="flex:0 0 200px;background:#fff;border:1px solid var(--hi);border-radius:14px;padding:16px;scroll-snap-align:start">
+      <div style="height:120px;background:var(--dom);border-radius:8px"></div>
+      <h4 style="margin:12px 0 6px;font-size:13px">카드 제목 2</h4>
+      <p style="margin:0;color:var(--mid);font-size:12px">정렬된 축이 시선 동선을 매끄럽게 만든다.</p>
+    </article>
+    <article style="flex:0 0 200px;background:#fff;border:1px solid var(--hi);border-radius:14px;padding:16px;scroll-snap-align:start">
+      <div style="height:120px;background:var(--dom);border-radius:8px"></div>
+      <h4 style="margin:12px 0 6px;font-size:13px">카드 제목 3</h4>
+      <p style="margin:0;color:var(--mid);font-size:12px">정렬된 축이 시선 동선을 매끄럽게 만든다.</p>
+    </article>
+    <article style="flex:0 0 200px;background:#fff;border:1px solid var(--hi);border-radius:14px;padding:16px;scroll-snap-align:start">
+      <div style="height:120px;background:var(--dom);border-radius:8px"></div>
+      <h4 style="margin:12px 0 6px;font-size:13px">카드 제목 4</h4>
+      <p style="margin:0;color:var(--mid);font-size:12px">정렬된 축이 시선 동선을 매끄럽게 만든다.</p>
+    </article>
+    <article style="flex:0 0 200px;background:#fff;border:1px solid var(--hi);border-radius:14px;padding:16px;scroll-snap-align:start">
+      <div style="height:120px;background:var(--dom);border-radius:8px"></div>
+      <h4 style="margin:12px 0 6px;font-size:13px">카드 제목 5</h4>
+      <p style="margin:0;color:var(--mid);font-size:12px">정렬된 축이 시선 동선을 매끄럽게 만든다.</p>
+    </article>
+    <article style="flex:0 0 200px;background:#fff;border:1px solid var(--hi);border-radius:14px;padding:16px;scroll-snap-align:start">
+      <div style="height:120px;background:var(--dom);border-radius:8px"></div>
+      <h4 style="margin:12px 0 6px;font-size:13px">카드 제목 6</h4>
+      <p style="margin:0;color:var(--mid);font-size:12px">정렬된 축이 시선 동선을 매끄럽게 만든다.</p>
+    </article></div>
+  <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(to right, transparent, var(--white))"></div>
+</div>
+</div></body></html>

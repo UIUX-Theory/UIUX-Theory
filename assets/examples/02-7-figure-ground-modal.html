@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>전경-배경 — 모달 다이얼로그</title>
+<style>
+  :root {
+    --bg:#EBEBEB; --ink:#5A5A5A; --mid:#8C8C8C; --dom:#B0B0B0;
+    --hi:#D2D2D2; --floor:#707070; --amber:#FFB919; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:40px;background:var(--bg);color:var(--ink);
+    font-family:system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;font-size:14px;line-height:1.5}
+  h1{font-size:18px;margin:0 0 24px;color:var(--floor)}
+  .stage{max-width:880px;margin:0 auto;background:var(--white);
+    border-radius:20px;padding:32px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+
+</style></head>
+<body><h1>전경-배경 — 모달 다이얼로그</h1><div class="stage">
+<p style="color:var(--floor);font-weight:600;margin-bottom:16px">모달이 어두운 배경 위로 전경으로 떠오른다</p>
+<div style="position:relative;height:380px;border-radius:14px;overflow:hidden;background:var(--bg)">
+  <header style="background:#fff;padding:14px 20px;display:flex;justify-content:space-between"><strong>페이지</strong><span style="width:24px;height:24px;border-radius:50%;background:var(--hi)"></span></header>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;padding:20px">
+    <div style="background:#fff;border:1px solid var(--hi);border-radius:12px;height:180px"></div>
+    <div style="background:#fff;border:1px solid var(--hi);border-radius:12px;height:180px"></div>
+    <div style="background:#fff;border:1px solid var(--hi);border-radius:12px;height:180px"></div>
+  </div>
+  <div style="position:absolute;inset:0;background:rgba(112,112,112,.55);display:flex;align-items:center;justify-content:center">
+    <div style="background:#fff;border-radius:16px;padding:24px;width:380px;box-shadow:0 12px 32px rgba(0,0,0,.25)">
+      <h3 style="margin:0 0 8px;font-size:16px">계정 삭제</h3>
+      <p style="margin:0 0 24px;color:var(--mid);font-size:13px">이 작업은 되돌릴 수 없습니다. 정말 계속하시겠습니까?</p>
+      <div style="display:flex;justify-content:flex-end;gap:8px">
+        <button style="padding:10px 20px;border:1.5px solid var(--dom);border-radius:10px;background:#fff;font-weight:600">취소</button>
+        <button style="padding:10px 24px;border:0;border-radius:10px;background:var(--amber);color:#fff;font-weight:700">삭제</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div></body></html>

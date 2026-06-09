@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>유사성 — 버튼 위계 / 상태 태그</title>
+<style>
+  :root {
+    --bg:#EBEBEB; --ink:#5A5A5A; --mid:#8C8C8C; --dom:#B0B0B0;
+    --hi:#D2D2D2; --floor:#707070; --amber:#FFB919; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:40px;background:var(--bg);color:var(--ink);
+    font-family:system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;font-size:14px;line-height:1.5}
+  h1{font-size:18px;margin:0 0 24px;color:var(--floor)}
+  .stage{max-width:880px;margin:0 auto;background:var(--white);
+    border-radius:20px;padding:32px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+
+</style></head>
+<body><h1>유사성 — 버튼 위계 / 상태 태그</h1><div class="stage">
+<p style="color:var(--floor);font-weight:600">✗ 같은 색 버튼 세 개</p>
+<div style="display:flex;gap:12px;margin-bottom:32px">
+  <button style="padding:10px 20px;border:0;border-radius:10px;background:var(--amber);color:#fff;font-weight:600">취소</button>
+  <button style="padding:10px 20px;border:0;border-radius:10px;background:var(--amber);color:#fff;font-weight:600">임시저장</button>
+  <button style="padding:10px 20px;border:0;border-radius:10px;background:var(--amber);color:#fff;font-weight:600">발행하기</button>
+</div>
+<p style="color:var(--floor);font-weight:600">✓ 주요 CTA만 차별화</p>
+<div style="display:flex;gap:12px;align-items:center;margin-bottom:32px">
+  <button style="padding:10px 20px;border:0;background:none;color:var(--mid);font-weight:600;cursor:pointer">취소</button>
+  <button style="padding:10px 20px;border:1.5px solid var(--dom);border-radius:10px;background:#fff;color:var(--ink);font-weight:600">임시저장</button>
+  <button style="padding:10px 24px;border:0;border-radius:10px;background:var(--amber);color:#fff;font-weight:700">발행하기</button>
+</div>
+<p style="color:var(--floor);font-weight:600">상태 태그는 종류별로 같은 색</p>
+<div style="display:flex;gap:8px">
+  <span style="padding:4px 12px;border-radius:13px;background:var(--amber);color:#fff;font-size:11px;font-weight:600">진행중</span>
+  <span style="padding:4px 12px;border-radius:13px;background:var(--amber);color:#fff;font-size:11px;font-weight:600">진행중</span>
+  <span style="padding:4px 12px;border-radius:13px;background:var(--mid);color:#fff;font-size:11px;font-weight:600">완료</span>
+  <span style="padding:4px 12px;border-radius:13px;background:var(--mid);color:#fff;font-size:11px;font-weight:600">완료</span>
+</div>
+</div></body></html>

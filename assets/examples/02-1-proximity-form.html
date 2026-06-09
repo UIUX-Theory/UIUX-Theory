@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>근접성 — 폼 라벨/섹션</title>
+<style>
+  :root {
+    --bg:#EBEBEB; --ink:#5A5A5A; --mid:#8C8C8C; --dom:#B0B0B0;
+    --hi:#D2D2D2; --floor:#707070; --amber:#FFB919; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:40px;background:var(--bg);color:var(--ink);
+    font-family:system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;font-size:14px;line-height:1.5}
+  h1{font-size:18px;margin:0 0 24px;color:var(--floor)}
+  .stage{max-width:880px;margin:0 auto;background:var(--white);
+    border-radius:20px;padding:32px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+
+</style></head>
+<body><h1>근접성 — 폼 라벨/섹션</h1><div class="stage">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px">
+  <div>
+    <p style="color:var(--floor);font-weight:600">✗ 모호한 간격</p>
+    <div style="display:grid;gap:18px">
+      <div><div style="margin-bottom:18px;color:var(--mid)">이메일</div><input style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
+      <div><div style="margin-bottom:18px;color:var(--mid)">비밀번호</div><input type="password" style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
+      <div><div style="margin-bottom:18px;color:var(--mid)">이름</div><input style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
+    </div>
+  </div>
+  <div>
+    <p style="color:var(--floor);font-weight:600">✓ 라벨 붙임 + 섹션 분리</p>
+    <section style="margin-bottom:32px">
+      <div style="color:var(--amber);font-weight:700;letter-spacing:1px;font-size:11px;margin-bottom:8px">계정</div>
+      <label style="display:block;margin-bottom:12px">이메일<input style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
+      <label style="display:block">비밀번호<input type="password" style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
+    </section>
+    <section>
+      <div style="color:var(--amber);font-weight:700;letter-spacing:1px;font-size:11px;margin-bottom:8px">프로필</div>
+      <label style="display:block;margin-bottom:12px">이름<input style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
+      <label style="display:block">전화번호<input style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
+    </section>
+  </div>
+</div>
+</div></body></html>
