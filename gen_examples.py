@@ -47,24 +47,32 @@ def html_doc(title, body, extra_css=""):
 
 # ---------- 2.1 Proximity — Form ----------
 s = ''
-# left: bad spacing (label far from field, equal gaps everywhere) marked ✗
-s += f'<text x="60" y="50" font-size="14" font-weight="600" fill="{FLOOR}">✗ 모호한 간격</text>'
+# Column titles at y=50, content starts at y=100 (50px gap = clearly NOT
+# part of the first field group)
+TITLE_Y = 50
+CONTENT_Y = 100
+# Left column: 4 fields, evenly spaced so last field bottom ≈ 400
+s += f'<text x="60" y="{TITLE_Y}" font-size="14" font-weight="700" fill="{FLOOR}">✗ 모호한 간격</text>'
+# row pitch 88: label + 18 + field(32) + 38 gap = 88, 4 rows span 90→398
 for i, lab in enumerate(["이메일", "비밀번호", "이름", "전화번호"]):
-    y = 80 + i*78
+    # pitch 80 → 4 rows span 100→340, last rect bottom 390 = right column
+    y = CONTENT_Y + i*80
     s += f'<text x="60" y="{y}" font-size="13" fill="{MID}">{lab}</text>'
     s += f'<rect x="60" y="{y+18}" width="320" height="32" rx="8" fill="{WHITE}" stroke="{HI}"/>'
-# right: good (label close to field, sections separated)
-s += f'<text x="500" y="50" font-size="14" font-weight="600" fill="{FLOOR}">✓ 라벨 붙임 + 섹션 분리</text>'
+# Right column: 2 sections × 2 fields, aligned to same bottom
+s += f'<text x="500" y="{TITLE_Y}" font-size="14" font-weight="700" fill="{FLOOR}">✓ 라벨 붙임 + 섹션 분리</text>'
 groups = [("계정", ["이메일", "비밀번호"]), ("프로필", ["이름", "전화번호"])]
-y = 70
-for gtitle, fields in groups:
-    s += f'<text x="500" y="{y}" font-size="11" fill="{ACCENT}" font-weight="700" letter-spacing="1">{gtitle.upper()}</text>'
-    y += 14
+y = CONTENT_Y  # 100
+for gi, (gtitle, fields) in enumerate(groups):
+    # section title with tinted backing strip for clear separation
+    s += f'<rect x="500" y="{y-14}" width="40" height="3" rx="1.5" fill="{ACCENT}"/>'
+    s += f'<text x="500" y="{y}" font-size="11" fill="{ACCENT}" font-weight="700" letter-spacing="1.5">{gtitle.upper()}</text>'
+    y += 22  # gap from section title to first field label
     for lab in fields:
-        s += f'<text x="500" y="{y+14}" font-size="12" fill="{INK}">{lab}</text>'
-        s += f'<rect x="500" y="{y+22}" width="320" height="32" rx="8" fill="{WHITE}" stroke="{DOM}"/>'
-        y += 64
-    y += 22
+        s += f'<text x="500" y="{y}" font-size="12" font-weight="600" fill="{INK}">{lab}</text>'
+        s += f'<rect x="500" y="{y+8}" width="320" height="32" rx="8" fill="{WHITE}" stroke="{DOM}"/>'
+        y += 60  # row pitch within section
+    y += 26  # extra gap between sections
 save("02-1-proximity-form", svg_frame(s), html_doc(
     "근접성 — 폼 라벨/섹션",
     """
