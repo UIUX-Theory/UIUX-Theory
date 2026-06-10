@@ -562,6 +562,15 @@
 > ![Skeleton vs Spinner — 폐쇄성으로 구조 미리 보임](./assets/examples/02-6-closure-skeleton.svg)
 > *Skeleton vs Spinner — 폐쇄성으로 구조 미리 보임*
 
+> ![음각 폐쇄 — FedEx-style 숨겨진 화살표](./assets/examples/02-6-closure-logo.svg)
+> *음각 폐쇄 — 보이지 않는 윤곽을 마음속에서 완성*
+
+> ![아바타 fallback — 닫힌 원 + 이니셜](./assets/examples/02-6-closure-avatar.svg)
+> *아바타 fallback — 이미지 없을 때도 정체 인지*
+
+> ![원형 진행률 — 닫힐 도형으로 완료 암시](./assets/examples/02-6-closure-progress.svg)
+> *원형 진행률 — 닫힐 도형으로 완료 암시*
+
 
 ??? note "로고·아이콘 디자인"
 

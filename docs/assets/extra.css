@@ -48,29 +48,13 @@
   border-top: none;
   padding-top: 0;
 }
-/* H3 block labels (정의/왜/패턴/상호작용/체크리스트): eyebrow style */
+/* H3 block labels (정의/왜/패턴/상호작용/체크리스트): plain eyebrow text */
 .md-typeset h3.block-label {
   margin-top: 2.4rem;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #6541F2;
-}
-.md-typeset h3.block-label::before {
-  content: "";
-  display: inline-block;
-  width: 14px;
-  height: 3px;
-  margin-right: 8px;
-  vertical-align: 4px;
-  border-radius: 2px;
-  background: #6541F2;
-}
-[data-md-color-scheme="slate"] .md-typeset h3.block-label {
-  color: #9F87F8;
-}
-[data-md-color-scheme="slate"] .md-typeset h3.block-label::before {
-  background: #9F87F8;
+  color: var(--md-default-fg-color--light);
 }
 
 /* ---------- Collapsible spec lists: neutral, quiet ---------- */

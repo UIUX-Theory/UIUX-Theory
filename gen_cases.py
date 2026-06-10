@@ -263,6 +263,94 @@ s += f'<rect x="480" y="342" width="200" height="10" rx="5" fill="{HI}"/>'
 s += caption(40, 420, "→ 사용자가 마음속에서 구조를 완성 — 같은 로딩 시간이라도 더 빠르게 느낌")
 save("02-6-closure-skeleton", s)
 
+# ==================== 2.6 Closure — Negative space logo (hidden arrow) ====================
+s = title(40, 50, "음각 폐쇄 — 보이지 않는 윤곽을 마음속에서 완성")
+# Two side-by-side: "without closure cue" vs "with closure cue"
+s += caption(40, 90, "단순 도형 — 닫힌 도형만 보임")
+# Plain "FE" wordmark (no negative space arrow)
+s += f'<rect x="80" y="140" width="60" height="120" rx="6" fill="{ACCENT}"/>'
+s += f'<rect x="80" y="140" width="120" height="22" rx="4" fill="{ACCENT}"/>'
+s += f'<rect x="80" y="190" width="100" height="22" rx="4" fill="{ACCENT}"/>'
+s += f'<rect x="80" y="240" width="120" height="22" rx="4" fill="{ACCENT}"/>'
+s += f'<rect x="220" y="140" width="60" height="120" rx="6" fill="{ACCENT}"/>'
+s += f'<rect x="220" y="140" width="120" height="22" rx="4" fill="{ACCENT}"/>'
+s += f'<rect x="220" y="190" width="100" height="22" rx="4" fill="{ACCENT}"/>'
+s += caption(40, 300, "F + E (글자 두 개)")
+
+s += caption(440, 90, "음각 화살표 — 같은 글자 사이에 화살표가 떠오름")
+# FedEx-style negative arrow between E and x: simulate by drawing two shapes with a triangular gap
+s += f'<rect x="480" y="140" width="60" height="120" rx="6" fill="{ACCENT}"/>'
+s += f'<rect x="480" y="140" width="120" height="22" rx="4" fill="{ACCENT}"/>'
+s += f'<rect x="480" y="190" width="100" height="22" rx="4" fill="{ACCENT}"/>'
+s += f'<rect x="480" y="240" width="120" height="22" rx="4" fill="{ACCENT}"/>'
+# right "x" — slanted strokes forming an arrowhead negative space pointing right
+s += f'<polygon points="620,160 700,200 620,240 660,200" fill="{ACCENT}"/>'
+s += f'<polygon points="720,160 780,160 720,240 660,200" fill="{ACCENT}"/>'
+# the arrow gap revealed (white)
+s += f'<polygon points="660,180 680,200 660,220" fill="{WHITE}"/>'
+s += f'<text x="700" y="290" text-anchor="middle" font-size="11" font-weight="700" fill="{ACCENT}">▶ 음각 화살표</text>'
+s += caption(440, 300, "글자 사이 흰 공간이 화살표로 인지됨")
+s += caption(40, 420, "→ 명시적으로 그리지 않아도 뇌가 단서로 형태를 완성 (브랜드 기억성 ↑)")
+save("02-6-closure-logo", s)
+
+# ==================== 2.6 Closure — Avatar initials fallback ====================
+s = title(40, 50, "아바타 fallback — 닫힌 원 + 이니셜")
+# left: empty rectangle (no closure cue)
+s += caption(40, 90, "사각형 + 텍스트만 — 누구인지 인지 약함")
+for i, (init, c) in enumerate([("KH", DOM), ("JS", DOM), ("MY", DOM)]):
+    x = 80 + i*100
+    s += f'<rect x="{x}" y="130" width="60" height="60" rx="4" fill="{HI}"/>'
+    s += f'<text x="{x+30}" y="167" text-anchor="middle" font-size="18" font-weight="700" fill="{MID}">{init}</text>'
+
+# right: closed circle with colored bg + initials (closure principle in action)
+s += caption(440, 90, "닫힌 원 + 색 + 이니셜 — 고유 정체 인지")
+colors = [ACCENT, "#1F9D55", "#D97706"]
+for i, (init, col) in enumerate([("KH", colors[0]), ("JS", colors[1]), ("MY", colors[2])]):
+    x = 480 + i*100
+    s += f'<circle cx="{x+30}" cy="160" r="30" fill="{col}"/>'
+    s += f'<text x="{x+30}" y="167" text-anchor="middle" font-size="18" font-weight="700" fill="{WHITE}">{init}</text>'
+
+# both sides: small mock profile line under avatars
+for x0 in [40, 440]:
+    for i in range(3):
+        x = x0 + 40 + i*100
+        s += f'<rect x="{x}" y="210" width="60" height="8" rx="4" fill="{DOM}"/>'
+        s += f'<rect x="{x+5}" y="225" width="50" height="6" rx="3" fill="{HI}"/>'
+
+s += caption(40, 280, "닫힌 원형은 '사람/엔터티'의 시각 단위로 학습되어 있어 인지 빠름")
+s += caption(40, 410, "→ 이미지 로딩 실패·없을 때도 사용자 인지 흐름이 끊기지 않음 (Slack·Gmail·Notion 등)")
+save("02-6-closure-avatar", s)
+
+# ==================== 2.6 Closure — Circular progress ring ====================
+s = title(40, 50, "원형 진행률 — 닫힐 도형으로 완료를 암시")
+# 4 states of circular progress: 25/50/75/100
+states = [(25, "25%"), (50, "50%"), (75, "75%"), (100, "완료")]
+import math as _math
+cx_base = 140
+for i, (pct, lab) in enumerate(states):
+    cx, cy = cx_base + i*180, 220
+    r = 60
+    # background track
+    s += f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{HI}" stroke-width="10"/>'
+    # progress arc
+    if pct < 100:
+        ang = pct/100 * 360 - 90
+        x_end = cx + r * _math.cos(_math.radians(ang))
+        y_end = cy + r * _math.sin(_math.radians(ang))
+        large = 1 if pct > 50 else 0
+        s += f'<path d="M {cx} {cy-r} A {r} {r} 0 {large} 1 {x_end:.1f} {y_end:.1f}" fill="none" stroke="{ACCENT}" stroke-width="10" stroke-linecap="round"/>'
+    else:
+        s += f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{ACCENT}" stroke-width="10"/>'
+        # checkmark
+        s += f'<polyline points="{cx-18},{cy} {cx-4},{cy+14} {cx+22},{cy-14}" fill="none" stroke="{ACCENT}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'
+    # center percentage
+    if pct < 100:
+        s += f'<text x="{cx}" y="{cy+8}" text-anchor="middle" font-size="22" font-weight="800" fill="{INK}">{lab}</text>'
+    s += f'<text x="{cx}" y="{cy+95}" text-anchor="middle" font-size="12" font-weight="600" fill="{MID}">{lab if pct==100 else "진행 중"}</text>'
+
+s += caption(40, 410, "→ 호의 일부만 보여도 '원이 닫힐 것'이라는 폐쇄 인지 → 진행률·완성도 직관적 표현")
+save("02-6-closure-progress", s)
+
 # ==================== 2.7 Figure-Ground — Interactive states ====================
 s = title(40, 50, "버튼 상태별 figure-ground 단계")
 states = [
