@@ -56,6 +56,10 @@
 
 각 카테고리를 펼쳐 구체 스펙(px·비율·ms)을 확인하세요.
 
+> ![근접성 비율 가이드 — 라벨↔필드 vs 행간 1:3 이상](./assets/examples/02-1-proximity-ratio.svg)
+> *근접성 비율 가이드 — 라벨↔필드 vs 행간 1:3 이상*
+
+
 ??? note "폼·입력"
 
     - 라벨 ↔ 필드: 4–8px (긴밀하게 묶임). 다음 필드 라벨까지: 16–24px. **두 간격의 비율 1:3 이상**을 만들어야 라벨이 자기 필드에 명백히 속함.
@@ -66,8 +70,6 @@
     - 좌측 라벨(label-on-left) 폼: 라벨-필드 수평 간격이 행간보다 좁아야 함. 행간보다 넓으면 라벨이 위 행 필드로 묶임.
     - multi-step 폼: 진행 인디케이터 단계 명과 단계 번호는 4px(같은 단위), 단계 사이는 32px+(시간적 순서 구분).
 
-> ![근접성 비율 가이드 — 라벨↔필드 vs 행간 1:3 이상](./assets/examples/02-1-proximity-ratio.svg)
-> *근접성 비율 가이드 — 라벨↔필드 vs 행간 1:3 이상*
 
 ??? note "카드·리스트"
 
@@ -123,9 +125,9 @@
 
 ??? info "레퍼런스 펼치기"
 
-    - NN/g — Proximity Principle in Visual Design: https://www.nngroup.com/articles/gestalt-proximity/
-    - NN/g (영상) — Proximity: Gestalt Principle for UI Design: https://www.nngroup.com/videos/proximity-gestalt/
-    - IxDF — Gestalt Principles (Part 2): https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2
+    - NN/g — Proximity Principle in Visual Design: [https://www.nngroup.com/articles/gestalt-proximity/](https://www.nngroup.com/articles/gestalt-proximity/){:target="_blank" rel="noopener"}
+    - NN/g (영상) — Proximity: Gestalt Principle for UI Design: [https://www.nngroup.com/videos/proximity-gestalt/](https://www.nngroup.com/videos/proximity-gestalt/){:target="_blank" rel="noopener"}
+    - IxDF — Gestalt Principles (Part 2): [https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2](https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2){:target="_blank" rel="noopener"}
     - Palmer, S. & Rock, I. (1994). Rethinking perceptual organization: The role of uniform connectedness. *Psychonomic Bulletin & Review* — 그룹핑 단서 우선순위 실험.
     - Han, S. & Humphreys, G. W. (1999). Interactions between perceptual organization based on Gestalt laws and those based on hierarchical processing. *Perception & Psychophysics*.
 
@@ -163,6 +165,10 @@
 
 각 카테고리를 펼쳐 구체 스펙(px·비율·ms)을 확인하세요.
 
+> ![버튼 위계 4단계 — Primary / Secondary / Tertiary / Ghost](./assets/examples/02-2-similarity-button-hierarchy.svg)
+> *버튼 위계 4단계 — Primary / Secondary / Tertiary / Ghost*
+
+
 ??? note "버튼 위계"
 
     - Primary CTA 1개만 액센트 색(채움). Secondary는 outline, Tertiary는 ghost(텍스트만). 한 화면에 채움 버튼이 2개 이상이면 위계 소실.
@@ -170,8 +176,6 @@
     - 파괴적(destructive) 액션은 별도 색군(빨강 계열) 일관 적용. "삭제"가 일반 회색이면 위계가 약함.
     - 아이콘 버튼 그룹: 모든 아이콘 스타일 통일(filled vs outlined 섞지 말 것). Material 가이드도 한 화면에서 한 스타일.
 
-> ![버튼 위계 4단계 — Primary / Secondary / Tertiary / Ghost](./assets/examples/02-2-similarity-button-hierarchy.svg)
-> *버튼 위계 4단계 — Primary / Secondary / Tertiary / Ghost*
 
 ??? note "상태·카테고리 색"
 
@@ -227,10 +231,10 @@
 
 ??? info "레퍼런스 펼치기"
 
-    - NN/g — Similarity Principle in Visual Design: https://www.nngroup.com/articles/gestalt-similarity/
-    - NN/g (영상) — Similarity: https://www.nngroup.com/videos/similarity-gestalt-principle/
+    - NN/g — Similarity Principle in Visual Design: [https://www.nngroup.com/articles/gestalt-similarity/](https://www.nngroup.com/articles/gestalt-similarity/){:target="_blank" rel="noopener"}
+    - NN/g (영상) — Similarity: [https://www.nngroup.com/videos/similarity-gestalt-principle/](https://www.nngroup.com/videos/similarity-gestalt-principle/){:target="_blank" rel="noopener"}
     - Treisman, A. (1985). Preattentive processing in vision. *Computer Vision, Graphics, and Image Processing* — 색 popout 100ms.
-    - WCAG 2.2 — Use of Color (1.4.1): https://www.w3.org/WAI/WCAG22/Understanding/use-of-color
+    - WCAG 2.2 — Use of Color (1.4.1): [https://www.w3.org/WAI/WCAG22/Understanding/use-of-color](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color){:target="_blank" rel="noopener"}
 
 ### 체크리스트 {: .block-label }
 
@@ -265,6 +269,10 @@
 
 각 카테고리를 펼쳐 구체 스펙(px·비율·ms)을 확인하세요.
 
+> ![Elevation 시스템 — 0/1/3/8/16dp 위계](./assets/examples/02-3-common-region-elevation.svg)
+> *Elevation 시스템 — 0/1/3/8/16dp 위계*
+
+
 ??? note "카드 시스템"
 
     - 카드 elevation 위계(예: 0/1/3/8dp): 0=배경, 1=기본 카드, 3=상호작용 중 카드, 8=floating(메뉴·모달). 위계가 곧 인터랙션 단계.
@@ -272,8 +280,6 @@
     - 카드 안 카드(nested card)는 안티패턴 — 한 카드 안에서 sub-그룹이 필요하면 배경색 tint나 dividing line으로만 표현.
     - 클릭 가능 카드: hover에서 elevation 또는 border 색 변화. 정적 카드와 시각적으로 구분되어야 함.
 
-> ![Elevation 시스템 — 0/1/3/8/16dp 위계](./assets/examples/02-3-common-region-elevation.svg)
-> *Elevation 시스템 — 0/1/3/8/16dp 위계*
 
 ??? note "패널·시트·드로어"
 
@@ -324,10 +330,10 @@
 
 ??? info "레퍼런스 펼치기"
 
-    - NN/g — The Principle of Common Region: Containers Create Groupings: https://www.nngroup.com/articles/common-region/
+    - NN/g — The Principle of Common Region: Containers Create Groupings: [https://www.nngroup.com/articles/common-region/](https://www.nngroup.com/articles/common-region/){:target="_blank" rel="noopener"}
     - Palmer, S. (1992). Common region: A new principle of perceptual grouping. *Cognitive Psychology* — 원전.
-    - Material Design — Cards: https://m3.material.io/components/cards/overview
-    - Apple HIG — Boxes & Group views: https://developer.apple.com/design/human-interface-guidelines/boxes
+    - Material Design — Cards: [https://m3.material.io/components/cards/overview](https://m3.material.io/components/cards/overview){:target="_blank" rel="noopener"}
+    - Apple HIG — Boxes & Group views: [https://developer.apple.com/design/human-interface-guidelines/boxes](https://developer.apple.com/design/human-interface-guidelines/boxes){:target="_blank" rel="noopener"}
 
 ### 체크리스트 {: .block-label }
 
@@ -360,6 +366,10 @@
 
 각 카테고리를 펼쳐 구체 스펙(px·비율·ms)을 확인하세요.
 
+> ![연결성 컨트롤 변형 — segmented / tab / pill / 분리 버튼](./assets/examples/02-4-connectedness-variants.svg)
+> *연결성 컨트롤 변형 — segmented / tab / pill / 분리 버튼*
+
+
 ??? note "단계·진행 인디케이터"
 
     - Multi-step 폼/체크아웃: 단계 원들을 선으로 이어 "하나의 흐름"임을 표시. 완료된 단계는 채움 색으로 진행 정도 표시.
@@ -374,8 +384,6 @@
     - 페이지네이션: 페이지 번호들이 한 줄 컨테이너 안에서 인접 → 같은 페이지 집합.
     - Tabs: 탭들이 한 가로선 위에 인접 + active 탭 밑줄로 현재 위치 강조.
 
-> ![연결성 컨트롤 변형 — segmented / tab / pill / 분리 버튼](./assets/examples/02-4-connectedness-variants.svg)
-> *연결성 컨트롤 변형 — segmented / tab / pill / 분리 버튼*
 
 ??? note "내비게이션·계층 구조"
 
@@ -418,9 +426,9 @@
 
 ??? info "레퍼런스 펼치기"
 
-    - NN/g (영상) — Connectedness: https://www.nngroup.com/videos/connectedness-gestalt/
+    - NN/g (영상) — Connectedness: [https://www.nngroup.com/videos/connectedness-gestalt/](https://www.nngroup.com/videos/connectedness-gestalt/){:target="_blank" rel="noopener"}
     - Palmer, S. & Rock, I. (1994). Rethinking perceptual organization: The role of uniform connectedness. *Psychonomic Bulletin & Review*.
-    - IxDF — Part 2 (Uniform Connectedness 포함): https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2
+    - IxDF — Part 2 (Uniform Connectedness 포함): [https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2](https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2){:target="_blank" rel="noopener"}
 
 ### 체크리스트 {: .block-label }
 
@@ -452,6 +460,10 @@
 
 각 카테고리를 펼쳐 구체 스펙(px·비율·ms)을 확인하세요.
 
+> ![F-패턴 시선 동선 — 헤드라인 + 좌측 트랙](./assets/examples/02-5-continuity-f-pattern.svg)
+> *F-패턴 시선 동선 — 헤드라인 + 좌측 트랙*
+
+
 ??? note "정렬·그리드 시스템"
 
     - 8pt 또는 4pt 스페이싱 시스템: 모든 여백·요소 크기를 8(또는 4)의 배수로 → 자동으로 정렬되어 시선 흐름 매끄러움.
@@ -465,8 +477,6 @@
     - 시각 중심 페이지: Z-패턴 — 로고(좌상) → 메뉴(우상) → 히어로 이미지/CTA(좌하/우하) 대각선 흐름.
     - 레이어케이크 패턴(가로 폭이 큰 페이지): 가로 띠가 위에서 아래로 쌓이는 구조 — 각 띠는 단일 메시지.
 
-> ![F-패턴 시선 동선 — 헤드라인 + 좌측 트랙](./assets/examples/02-5-continuity-f-pattern.svg)
-> *F-패턴 시선 동선 — 헤드라인 + 좌측 트랙*
 
 ??? note "스크롤·페이지 흐름"
 
@@ -510,10 +520,10 @@
 
 ??? info "레퍼런스 펼치기"
 
-    - NN/g (영상) — Continuation: https://www.nngroup.com/videos/continuation-gestalt/
-    - NN/g — F-Shaped Pattern of Reading on the Web: https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/
-    - IxDF — Part 2: https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2
-    - Material Design — Layout grid: https://m3.material.io/foundations/layout/applying-layout/window-size-classes
+    - NN/g (영상) — Continuation: [https://www.nngroup.com/videos/continuation-gestalt/](https://www.nngroup.com/videos/continuation-gestalt/){:target="_blank" rel="noopener"}
+    - NN/g — F-Shaped Pattern of Reading on the Web: [https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/](https://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/){:target="_blank" rel="noopener"}
+    - IxDF — Part 2: [https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2](https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2){:target="_blank" rel="noopener"}
+    - Material Design — Layout grid: [https://m3.material.io/foundations/layout/applying-layout/window-size-classes](https://m3.material.io/foundations/layout/applying-layout/window-size-classes){:target="_blank" rel="noopener"}
 
 ### 체크리스트 {: .block-label }
 
@@ -546,6 +556,10 @@
 
 각 카테고리를 펼쳐 구체 스펙(px·비율·ms)을 확인하세요.
 
+> ![Skeleton vs Spinner — 폐쇄성으로 구조 미리 보임](./assets/examples/02-6-closure-skeleton.svg)
+> *Skeleton vs Spinner — 폐쇄성으로 구조 미리 보임*
+
+
 ??? note "로고·아이콘 디자인"
 
     - FedEx 로고의 숨겨진 화살표 — E와 x 사이 음각.
@@ -567,8 +581,6 @@
     - 제목 자리 → 회색 가로 막대, 이미지 자리 → 회색 사각형, 본문 → 여러 줄 회색 막대 — 사용자는 "여기에 콘텐츠가 올 것"을 자동 추론.
     - Skeleton vs spinner: skeleton이 폐쇄성으로 "구조"를 알리므로 더 빠른 인지.
 
-> ![Skeleton vs Spinner — 폐쇄성으로 구조 미리 보임](./assets/examples/02-6-closure-skeleton.svg)
-> *Skeleton vs Spinner — 폐쇄성으로 구조 미리 보임*
 
 ??? note "아바타·이니셜 fallback"
 
@@ -606,8 +618,8 @@
 
 ??? info "레퍼런스 펼치기"
 
-    - NN/g — Principle of Closure in Visual Design: https://www.nngroup.com/articles/principle-closure/
-    - IxDF — Law of Closure: https://www.interaction-design.org/literature/topics/law-of-closure
+    - NN/g — Principle of Closure in Visual Design: [https://www.nngroup.com/articles/principle-closure/](https://www.nngroup.com/articles/principle-closure/){:target="_blank" rel="noopener"}
+    - IxDF — Law of Closure: [https://www.interaction-design.org/literature/topics/law-of-closure](https://www.interaction-design.org/literature/topics/law-of-closure){:target="_blank" rel="noopener"}
     - Kanizsa, G. (1955). Margini quasi-percettivi in campi con stimolazione omogenea. *Rivista di Psicologia* — 환영 윤곽선 원전.
 
 ### 체크리스트 {: .block-label }
@@ -639,6 +651,10 @@
 ### 현장 적용 패턴 {: .block-label }
 
 각 카테고리를 펼쳐 구체 스펙(px·비율·ms)을 확인하세요.
+
+> ![버튼 상태별 figure-ground — default/hover/focus/active/disabled](./assets/examples/02-7-figure-ground-states.svg)
+> *버튼 상태별 figure-ground — default/hover/focus/active/disabled*
+
 
 ??? note "모달·오버레이"
 
@@ -680,8 +696,6 @@
     - Hover: 배경색 tint 또는 elevation 상승 → 상호작용 가능한 figure 강조.
     - Active(pressed): 색 더 진하게 + (옵션) 미세한 scale 감소 → 누르는 감각.
 
-> ![버튼 상태별 figure-ground — default/hover/focus/active/disabled](./assets/examples/02-7-figure-ground-states.svg)
-> *버튼 상태별 figure-ground — default/hover/focus/active/disabled*
 
 ??? note "카드·콘텐츠 영역"
 
@@ -702,11 +716,11 @@
 
 ??? info "레퍼런스 펼치기"
 
-    - NN/g (영상) — Figure/Ground: https://www.nngroup.com/videos/figure-ground-gestalt/
+    - NN/g (영상) — Figure/Ground: [https://www.nngroup.com/videos/figure-ground-gestalt/](https://www.nngroup.com/videos/figure-ground-gestalt/){:target="_blank" rel="noopener"}
     - Rubin, E. (1915). Visuell wahrgenommene Figuren — 원전.
-    - WCAG 2.2 — Contrast (Minimum) 1.4.3: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum
-    - Material Design — Elevation: https://m3.material.io/styles/elevation/overview
-    - Apple HIG — Materials & Vibrancy: https://developer.apple.com/design/human-interface-guidelines/materials
+    - WCAG 2.2 — Contrast (Minimum) 1.4.3: [https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum){:target="_blank" rel="noopener"}
+    - Material Design — Elevation: [https://m3.material.io/styles/elevation/overview](https://m3.material.io/styles/elevation/overview){:target="_blank" rel="noopener"}
+    - Apple HIG — Materials & Vibrancy: [https://developer.apple.com/design/human-interface-guidelines/materials](https://developer.apple.com/design/human-interface-guidelines/materials){:target="_blank" rel="noopener"}
 
 ### 체크리스트 {: .block-label }
 
@@ -738,6 +752,10 @@
 ### 현장 적용 패턴 {: .block-label }
 
 각 카테고리를 펼쳐 구체 스펙(px·비율·ms)을 확인하세요.
+
+> ![Tab indicator slide — 인디케이터가 함께 이동](./assets/examples/02-8-common-fate-tab-slide.svg)
+> *Tab indicator slide — 인디케이터가 함께 이동*
+
 
 ??? note "펼침·접힘"
 
@@ -779,8 +797,6 @@
     - Segmented control: active 영역이 옆 옵션으로 슬라이드.
     - Loading dot 점프: 점 3개가 일정 간격으로 함께 튐 → "같은 로딩 시스템".
 
-> ![Tab indicator slide — 인디케이터가 함께 이동](./assets/examples/02-8-common-fate-tab-slide.svg)
-> *Tab indicator slide — 인디케이터가 함께 이동*
 
 ??? note "모바일 특화"
 
@@ -802,10 +818,10 @@
 
 ??? info "레퍼런스 펼치기"
 
-    - NN/g (영상) — Common Fate: https://www.nngroup.com/videos/common-fate-gestalt/
-    - IxDF — Law of Common Fate: https://www.interaction-design.org/literature/topics/law-of-common-fate
-    - Material Design — Motion: https://m3.material.io/styles/motion/overview
-    - WCAG 2.2 — Animation from Interactions 2.3.3: https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions
+    - NN/g (영상) — Common Fate: [https://www.nngroup.com/videos/common-fate-gestalt/](https://www.nngroup.com/videos/common-fate-gestalt/){:target="_blank" rel="noopener"}
+    - IxDF — Law of Common Fate: [https://www.interaction-design.org/literature/topics/law-of-common-fate](https://www.interaction-design.org/literature/topics/law-of-common-fate){:target="_blank" rel="noopener"}
+    - Material Design — Motion: [https://m3.material.io/styles/motion/overview](https://m3.material.io/styles/motion/overview){:target="_blank" rel="noopener"}
+    - WCAG 2.2 — Animation from Interactions 2.3.3: [https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions){:target="_blank" rel="noopener"}
 
 ### 체크리스트 {: .block-label }
 
@@ -837,6 +853,10 @@
 
 각 카테고리를 펼쳐 구체 스펙(px·비율·ms)을 확인하세요.
 
+> ![8pt 그리드 시스템 — 카드·간격·CTA가 모두 8의 배수로 안착](./assets/examples/02-9-symmetry-8pt-grid.svg)
+> *8pt 그리드 시스템 — 카드·간격·CTA가 모두 8의 배수로 안착*
+
+
 ??? note "그리드 시스템"
 
     - 12-column 또는 16-column 그리드: 가장 유연. 1/2, 1/3, 1/4, 1/6 분할 모두 가능.
@@ -844,8 +864,6 @@
     - Modular scale: 폰트 크기·간격이 수학적 비례(1.125, 1.25, 1.5) → 자동 시각 조화.
     - 8pt spacing system: 모든 여백·크기를 8의 배수로 → 자동 그리드 정렬.
 
-> ![8pt 그리드 시스템 — 카드·간격·CTA가 모두 8의 배수로 안착](./assets/examples/02-9-symmetry-8pt-grid.svg)
-> *8pt 그리드 시스템 — 카드·간격·CTA가 모두 8의 배수로 안착*
 
 ??? note "레이아웃 균형"
 
@@ -905,11 +923,11 @@
 
 ??? info "레퍼런스 펼치기"
 
-    - IxDF — Part 3 (Prägnanz 포함): https://www.interaction-design.org/literature/article/the-laws-of-figure-ground-praegnanz-closure-and-common-fate-gestalt-principles-3
-    - Wagemans et al. (2012) Part II — 프레그난츠/단순성 원리: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3728284/
+    - IxDF — Part 3 (Prägnanz 포함): [https://www.interaction-design.org/literature/article/the-laws-of-figure-ground-praegnanz-closure-and-common-fate-gestalt-principles-3](https://www.interaction-design.org/literature/article/the-laws-of-figure-ground-praegnanz-closure-and-common-fate-gestalt-principles-3){:target="_blank" rel="noopener"}
+    - Wagemans et al. (2012) Part II — 프레그난츠/단순성 원리: [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3728284/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3728284/){:target="_blank" rel="noopener"}
     - Tufte, E. (1983). The Visual Display of Quantitative Information — 데이터 잉크 비율.
-    - Material Design — Layout grid: https://m3.material.io/foundations/layout/applying-layout/window-size-classes
-    - 8pt Grid System (Bryn Jackson): https://spec.fm/specifics/8-pt-grid
+    - Material Design — Layout grid: [https://m3.material.io/foundations/layout/applying-layout/window-size-classes](https://m3.material.io/foundations/layout/applying-layout/window-size-classes){:target="_blank" rel="noopener"}
+    - 8pt Grid System (Bryn Jackson): [https://spec.fm/specifics/8-pt-grid](https://spec.fm/specifics/8-pt-grid){:target="_blank" rel="noopener"}
 
 ### 체크리스트 {: .block-label }
 
@@ -936,8 +954,8 @@
 **스캔 패턴과의 연결**
 
 - 텍스트 중심 화면은 **F-패턴**, 시각 요소가 많은 화면은 **Z-패턴/레이어케이크 패턴**으로 스캔되는 경향. 위계 설계 시 첫 시선이 닿는 지점에 핵심을 배치한다.
-- NN/g — The Gestalt Principles for UI Design (위계·스케일·대비 종합): https://www.nngroup.com/videos/the-gestalt-principles-intro/
-- NN/g — Visual Design 용어집/치트시트: https://www.nngroup.com/articles/visual-design-cheat-sheet/
+- NN/g — The Gestalt Principles for UI Design (위계·스케일·대비 종합): [https://www.nngroup.com/videos/the-gestalt-principles-intro/](https://www.nngroup.com/videos/the-gestalt-principles-intro/){:target="_blank" rel="noopener"}
+- NN/g — Visual Design 용어집/치트시트: [https://www.nngroup.com/articles/visual-design-cheat-sheet/](https://www.nngroup.com/articles/visual-design-cheat-sheet/){:target="_blank" rel="noopener"}
 
 ![위계 분석 placeholder](./assets/03-hierarchy-annotated.svg)
 > 본인 작업 화면 한 장에 그룹 경계를 색 오버레이로 그려 "어떤 법칙이 어디서 작동하는지" 분석 주석을 단 이미지로 교체하세요 (`assets/03-hierarchy-annotated.svg`).
@@ -1043,29 +1061,29 @@
 
 #### 원전 (이론의 뿌리)
 - **Wertheimer, M. (1923). Laws of Organization in Perceptual Forms.** — 그룹핑 법칙의 출발점. 영어 번역본 무료 공개(Classics in the History of Psychology):
-  http://psychclassics.yorku.ca/Wertheimer/Forms/forms.htm
+  [http://psychclassics.yorku.ca/Wertheimer/Forms/forms.htm](http://psychclassics.yorku.ca/Wertheimer/Forms/forms.htm){:target="_blank" rel="noopener"}
 
 #### 현대 학술 종합 리뷰 (깊이의 핵심 · 오픈 액세스)
 - **Wagemans et al. (2012). A century of Gestalt psychology in visual perception: I. Perceptual grouping and figure–ground organization.** *Psychological Bulletin.* — 그룹핑·전경-배경 100년 연구 정리. PMC 무료:
-  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3482144/
+  [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3482144/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3482144/){:target="_blank" rel="noopener"}
 - **Wagemans et al. (2012). II. Conceptual and theoretical foundations.** — 프레그난츠/단순성 등 이론적 기초:
-  https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3728284/
+  [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3728284/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3728284/){:target="_blank" rel="noopener"}
 
 #### 실무 (UI/UX 적용)
-- **Nielsen Norman Group — Gestalt 토픽 허브**: https://www.nngroup.com/topic/gestalt/
-  - Proximity: https://www.nngroup.com/articles/gestalt-proximity/
-  - Similarity: https://www.nngroup.com/articles/gestalt-similarity/
-  - Common Region: https://www.nngroup.com/articles/common-region/
-  - Closure: https://www.nngroup.com/articles/principle-closure/
+- **Nielsen Norman Group — Gestalt 토픽 허브**: [https://www.nngroup.com/topic/gestalt/](https://www.nngroup.com/topic/gestalt/){:target="_blank" rel="noopener"}
+  - Proximity: [https://www.nngroup.com/articles/gestalt-proximity/](https://www.nngroup.com/articles/gestalt-proximity/){:target="_blank" rel="noopener"}
+  - Similarity: [https://www.nngroup.com/articles/gestalt-similarity/](https://www.nngroup.com/articles/gestalt-similarity/){:target="_blank" rel="noopener"}
+  - Common Region: [https://www.nngroup.com/articles/common-region/](https://www.nngroup.com/articles/common-region/){:target="_blank" rel="noopener"}
+  - Closure: [https://www.nngroup.com/articles/principle-closure/](https://www.nngroup.com/articles/principle-closure/){:target="_blank" rel="noopener"}
   - 영상 모음(Connectedness/Continuation/Figure-Ground/Common Fate): 위 토픽 허브에서 접근
-  - 종합 영상 — The Gestalt Principles for UI Design: https://www.nngroup.com/videos/the-gestalt-principles-intro/
-  - Visual Design 치트시트/용어집: https://www.nngroup.com/articles/visual-design-cheat-sheet/
+  - 종합 영상 — The Gestalt Principles for UI Design: [https://www.nngroup.com/videos/the-gestalt-principles-intro/](https://www.nngroup.com/videos/the-gestalt-principles-intro/){:target="_blank" rel="noopener"}
+  - Visual Design 치트시트/용어집: [https://www.nngroup.com/articles/visual-design-cheat-sheet/](https://www.nngroup.com/articles/visual-design-cheat-sheet/){:target="_blank" rel="noopener"}
 - **Interaction Design Foundation (IxDF)**
-  - Gestalt Principles 토픽: https://www.interaction-design.org/literature/topics/gestalt-principles
-  - Part 2 (Proximity·Connectedness·Continuation): https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2
-  - Part 3 (Figure-Ground·Prägnanz·Closure·Common Fate): https://www.interaction-design.org/literature/article/the-laws-of-figure-ground-praegnanz-closure-and-common-fate-gestalt-principles-3
-  - Law of Closure: https://www.interaction-design.org/literature/topics/law-of-closure
-  - Law of Common Fate: https://www.interaction-design.org/literature/topics/law-of-common-fate
+  - Gestalt Principles 토픽: [https://www.interaction-design.org/literature/topics/gestalt-principles](https://www.interaction-design.org/literature/topics/gestalt-principles){:target="_blank" rel="noopener"}
+  - Part 2 (Proximity·Connectedness·Continuation): [https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2](https://www.interaction-design.org/literature/article/laws-of-proximity-uniform-connectedness-and-continuation-gestalt-principles-2){:target="_blank" rel="noopener"}
+  - Part 3 (Figure-Ground·Prägnanz·Closure·Common Fate): [https://www.interaction-design.org/literature/article/the-laws-of-figure-ground-praegnanz-closure-and-common-fate-gestalt-principles-3](https://www.interaction-design.org/literature/article/the-laws-of-figure-ground-praegnanz-closure-and-common-fate-gestalt-principles-3){:target="_blank" rel="noopener"}
+  - Law of Closure: [https://www.interaction-design.org/literature/topics/law-of-closure](https://www.interaction-design.org/literature/topics/law-of-closure){:target="_blank" rel="noopener"}
+  - Law of Common Fate: [https://www.interaction-design.org/literature/topics/law-of-common-fate](https://www.interaction-design.org/literature/topics/law-of-common-fate){:target="_blank" rel="noopener"}
 
 > ※ 위 외부 페이지의 예시 스크린샷을 외부 공유 문서에 그대로 옮기는 것은 저작권 문제가 될 수 있음. 개인 학습용 캡처는 자유롭게, 공유 시에는 직접 제작 다이어그램으로 대체할 것.
 
