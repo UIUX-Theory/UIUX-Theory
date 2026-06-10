@@ -83,6 +83,13 @@
 .md-typeset details > summary {
   font-weight: 700;
 }
+/* Chevron: down when collapsed, up when expanded */
+.md-typeset details > summary::after {
+  transform: rotate(90deg);
+}
+.md-typeset details[open] > summary::after {
+  transform: rotate(-90deg);
+}
 .md-typeset details li {
   font-size: 0.95em;
 }
