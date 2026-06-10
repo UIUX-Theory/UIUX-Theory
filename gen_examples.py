@@ -47,55 +47,59 @@ def html_doc(title, body, extra_css=""):
 
 # ---------- 2.1 Proximity — Form ----------
 s = ''
-# Column titles at y=50, content starts at y=100 (50px gap = clearly NOT
-# part of the first field group)
 TITLE_Y = 50
-CONTENT_Y = 100
-# Left column: 4 fields, evenly spaced so last field bottom ≈ 400
-s += f'<text x="60" y="{TITLE_Y}" font-size="14" font-weight="700" fill="{FLOOR}">✗ 모호한 간격</text>'
-# row pitch 88: label + 18 + field(32) + 38 gap = 88, 4 rows span 90→398
-for i, lab in enumerate(["이메일", "비밀번호", "이름", "전화번호"]):
-    # pitch 80 → 4 rows span 100→340, last rect bottom 390 = right column
-    y = CONTENT_Y + i*80
-    s += f'<text x="60" y="{y}" font-size="13" fill="{MID}">{lab}</text>'
-    s += f'<rect x="60" y="{y+18}" width="320" height="32" rx="8" fill="{WHITE}" stroke="{HI}"/>'
-# Right column: 2 sections × 2 fields, aligned to same bottom
-s += f'<text x="500" y="{TITLE_Y}" font-size="14" font-weight="700" fill="{FLOOR}">✓ 라벨 붙임 + 섹션 분리</text>'
-groups = [("계정", ["이메일", "비밀번호"]), ("프로필", ["이름", "전화번호"])]
-y = CONTENT_Y  # 100
-for gi, (gtitle, fields) in enumerate(groups):
-    # section title with tinted backing strip for clear separation
-    s += f'<rect x="500" y="{y-14}" width="40" height="3" rx="1.5" fill="{ACCENT}"/>'
-    s += f'<text x="500" y="{y}" font-size="11" fill="{ACCENT}" font-weight="700" letter-spacing="1.5">{gtitle.upper()}</text>'
-    y += 22  # gap from section title to first field label
+CONTENT_Y = 110
+LEFT_X, RIGHT_X = 60, 500
+W_F, H_F = 320, 32
+
+# LEFT — bad: every gap = 24px, so each label is equidistant from
+# the field below AND the field above. You can't tell which it belongs to.
+s += f'<text x="{LEFT_X}" y="{TITLE_Y}" font-size="14" font-weight="700" fill="{FLOOR}">✗ 모호한 간격</text>'
+y = CONTENT_Y
+for lab in ["이메일", "비밀번호", "이름", "전화번호"]:
+    s += f'<text x="{LEFT_X}" y="{y}" font-size="13" fill="{MID}">{lab}</text>'
+    s += f'<rect x="{LEFT_X}" y="{y+24}" width="{W_F}" height="{H_F}" rx="8" fill="{WHITE}" stroke="{HI}"/>'
+    y += 80  # pitch = 24 + 32 + 24 (all equal)
+
+# RIGHT — good: tight label↔field bond (6px), clear row gap (22px),
+# much larger section break (56px). Section title is plain bold purple
+# text — no decoration, proximity does the grouping work.
+s += f'<text x="{RIGHT_X}" y="{TITLE_Y}" font-size="14" font-weight="700" fill="{FLOOR}">✓ 라벨 붙임 + 섹션 분리</text>'
+y = CONTENT_Y
+for gi, (gtitle, fields) in enumerate([("계정", ["이메일", "비밀번호"]),
+                                        ("프로필", ["이름", "전화번호"])]):
+    if gi > 0:
+        y += 34  # extra so field-bottom → next-section-title = 22+34 = 56
+    s += f'<text x="{RIGHT_X}" y="{y}" font-size="13" font-weight="700" fill="{ACCENT}">{gtitle}</text>'
+    y += 22  # section title → first field label
     for lab in fields:
-        s += f'<text x="500" y="{y}" font-size="12" font-weight="600" fill="{INK}">{lab}</text>'
-        s += f'<rect x="500" y="{y+8}" width="320" height="32" rx="8" fill="{WHITE}" stroke="{DOM}"/>'
-        y += 60  # row pitch within section
-    y += 26  # extra gap between sections
+        s += f'<text x="{RIGHT_X}" y="{y}" font-size="13" font-weight="600" fill="{INK}">{lab}</text>'
+        s += f'<rect x="{RIGHT_X}" y="{y+6}" width="{W_F}" height="{H_F}" rx="8" fill="{WHITE}" stroke="{DOM}"/>'
+        y += 60  # 6 + 32 + 22 → tight pair, generous row gap
 save("02-1-proximity-form", svg_frame(s), html_doc(
     "근접성 — 폼 라벨/섹션",
     """
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px">
       <div>
-        <p style="color:var(--floor);font-weight:600">✗ 모호한 간격</p>
-        <div style="display:grid;gap:18px">
-          <div><div style="margin-bottom:18px;color:var(--mid)">이메일</div><input style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
-          <div><div style="margin-bottom:18px;color:var(--mid)">비밀번호</div><input type="password" style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
-          <div><div style="margin-bottom:18px;color:var(--mid)">이름</div><input style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
+        <p style="color:var(--floor);font-weight:700;margin:0 0 32px">✗ 모호한 간격</p>
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <div><div style="margin-bottom:24px;color:var(--mid)">이메일</div><input style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
+          <div><div style="margin-bottom:24px;color:var(--mid)">비밀번호</div><input type="password" style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
+          <div><div style="margin-bottom:24px;color:var(--mid)">이름</div><input style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
+          <div><div style="margin-bottom:24px;color:var(--mid)">전화번호</div><input style="width:100%;padding:8px;border:1px solid var(--hi);border-radius:8px"/></div>
         </div>
       </div>
       <div>
-        <p style="color:var(--floor);font-weight:600">✓ 라벨 붙임 + 섹션 분리</p>
-        <section style="margin-bottom:32px">
-          <div style="color:var(--accent);font-weight:700;letter-spacing:1px;font-size:11px;margin-bottom:8px">계정</div>
-          <label style="display:block;margin-bottom:12px">이메일<input style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
-          <label style="display:block">비밀번호<input type="password" style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
+        <p style="color:var(--floor);font-weight:700;margin:0 0 32px">✓ 라벨 붙임 + 섹션 분리</p>
+        <section style="margin-bottom:48px">
+          <div style="color:var(--accent);font-weight:700;font-size:13px;margin-bottom:14px">계정</div>
+          <label style="display:block;margin-bottom:22px;font-weight:600">이메일<input style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
+          <label style="display:block;font-weight:600">비밀번호<input type="password" style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
         </section>
         <section>
-          <div style="color:var(--accent);font-weight:700;letter-spacing:1px;font-size:11px;margin-bottom:8px">프로필</div>
-          <label style="display:block;margin-bottom:12px">이름<input style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
-          <label style="display:block">전화번호<input style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
+          <div style="color:var(--accent);font-weight:700;font-size:13px;margin-bottom:14px">프로필</div>
+          <label style="display:block;margin-bottom:22px;font-weight:600">이름<input style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
+          <label style="display:block;font-weight:600">전화번호<input style="display:block;margin-top:4px;width:100%;padding:8px;border:1px solid var(--dom);border-radius:8px"/></label>
         </section>
       </div>
     </div>

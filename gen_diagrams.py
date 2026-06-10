@@ -72,7 +72,8 @@ cols = [150, 295, 440, 585]
 for r in range(2):
     for c in range(4):
         s += dot(cols[c], 140 + r*90)
-s += f'<rect x="400" y="95" width="245" height="180" rx="18" fill="{ACCENT}" opacity="0.15" stroke="{ACCENT}" stroke-width="3"/>'
+# dots at x=440,585 / y=140,230, dot radius 20 → centered tinted box with 25px padding
+s += f'<rect x="395" y="95" width="235" height="180" rx="18" fill="{ACCENT}" opacity="0.15" stroke="{ACCENT}" stroke-width="3"/>'
 save("02-3-common-region", frame(s))
 
 # 02-4 연결성: 위(분리) vs 아래(선으로 연결 → 묶임)

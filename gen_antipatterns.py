@@ -95,13 +95,11 @@ save("05-3-box-everywhere", s)
 # 05-3b 상자 천지 — 카드 안의 카드 (nested) vs 단일 카드 + 여백
 s = DIV
 s += label(40, 60, "중첩 카드 — 깊이 인지 혼란", False)
-# outer card
-s += f'<rect x="40" y="90" width="380" height="320" rx="14" fill="{WHITE}" stroke="{ACCENT}" stroke-width="2"/>'
-# inner cards stacked
-for i, y in enumerate([110, 200, 290]):
+# Outer card y=90 h=302; 3 inner cards h=78 with 14px gaps; 20px outer padding top/bottom
+s += f'<rect x="40" y="90" width="380" height="302" rx="14" fill="{WHITE}" stroke="{ACCENT}" stroke-width="2"/>'
+for i, y in enumerate([110, 202, 294]):
     s += f'<rect x="58" y="{y}" width="344" height="78" rx="10" fill="{TINT}" stroke="{ACCENT}" stroke-width="1.5"/>'
     s += f'<rect x="76" y="{y+18}" width="140" height="10" rx="5" fill="{INK}"/>'
-    # inner-inner box
     s += f'<rect x="76" y="{y+38}" width="280" height="26" rx="8" fill="{WHITE}" stroke="{DOM}"/>'
 s += label(460, 60, "단일 카드 + 섹션 여백", True)
 s += f'<rect x="460" y="90" width="380" height="320" rx="14" fill="{WHITE}" stroke="{HI}"/>'
