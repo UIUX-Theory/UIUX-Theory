@@ -463,6 +463,9 @@
 > ![F-패턴 시선 동선 — 헤드라인 + 좌측 트랙](./assets/examples/02-5-continuity-f-pattern.svg)
 > *F-패턴 시선 동선 — 헤드라인 + 좌측 트랙*
 
+> ![Z-패턴 시선 동선 — 시각 요소가 많은 페이지](./assets/examples/02-5-continuity-z-pattern.svg)
+> *Z-패턴 시선 동선 — 시각 요소가 많은 페이지*
+
 
 ??? note "정렬·그리드 시스템"
 

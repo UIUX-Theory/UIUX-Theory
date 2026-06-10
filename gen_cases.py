@@ -185,6 +185,51 @@ s += f'<text x="650" y="280" font-size="11" font-weight="700" fill="{ACCENT}">�
 s += caption(40, 440, "→ 헤드라인과 좌측 정렬 콘텐츠의 처음 단어가 가장 많이 읽힘 (NN/g eye-tracking)")
 save("02-5-continuity-f-pattern", s, h=470)
 
+# ==================== 2.5 Continuity — Z-pattern ====================
+s = title(40, 50, "Z-패턴 — 시각 요소가 많은 페이지의 시선 동선")
+# Page mock
+s += f'<rect x="40" y="90" width="800" height="320" rx="12" fill="{WHITE}" stroke="{HI}"/>'
+# Header: logo (top-left) + nav links + sign-up CTA (top-right)
+s += f'<circle cx="80" cy="120" r="14" fill="{ACCENT}"/>'
+s += f'<rect x="100" y="113" width="60" height="14" rx="4" fill="{INK}"/>'
+# nav placeholder rects
+for j, w in enumerate([40, 40, 50]):
+    s += f'<rect x="{600 + j*46}" y="116" width="{w}" height="8" rx="4" fill="{DOM}"/>'
+s += f'<rect x="752" y="106" width="64" height="28" rx="8" fill="{ACCENT}"/>'
+s += f'<text x="784" y="124" text-anchor="middle" font-size="11" font-weight="700" fill="{WHITE}">가입</text>'
+# Hero: big title left, image right
+s += f'<rect x="80" y="180" width="320" height="24" rx="4" fill="{INK}"/>'
+s += f'<rect x="80" y="216" width="280" height="10" rx="4" fill="{DOM}"/>'
+s += f'<rect x="80" y="234" width="240" height="10" rx="4" fill="{DOM}"/>'
+s += f'<rect x="500" y="170" width="280" height="140" rx="10" fill="{HI}"/>'
+# Bottom-right primary CTA + bottom-left supporting text
+s += f'<rect x="80" y="350" width="180" height="10" rx="4" fill="{DOM}"/>'
+s += f'<rect x="80" y="368" width="140" height="10" rx="4" fill="{DOM}"/>'
+s += f'<rect x="630" y="346" width="160" height="44" rx="10" fill="{ACCENT}"/>'
+s += f'<text x="710" y="374" text-anchor="middle" font-size="13" font-weight="700" fill="{WHITE}">시작하기 →</text>'
+# Z-shaped attention path overlay (heatmap-style strokes + arrows)
+# Top horizontal segment (logo → sign-up)
+s += f'<rect x="60" y="100" width="780" height="38" rx="4" fill="{ACCENT}" opacity="0.18"/>'
+# Diagonal segment (top-right → bottom-left)
+s += f'<path d="M780 140 L100 340" stroke="{ACCENT}" stroke-width="22" stroke-linecap="round" opacity="0.16"/>'
+# Bottom horizontal segment (bottom-left → bottom-right CTA)
+s += f'<rect x="60" y="338" width="780" height="38" rx="4" fill="{ACCENT}" opacity="0.18"/>'
+# Numbered markers + labels
+def marker(x, y, n, label):
+    out = f'<circle cx="{x}" cy="{y}" r="13" fill="{ACCENT}"/>'
+    out += f'<text x="{x}" y="{y+4}" text-anchor="middle" font-size="12" font-weight="700" fill="{WHITE}">{n}</text>'
+    return out
+s += marker(80, 120, '①', '')
+s += marker(784, 120, '②', '')
+s += marker(80, 357, '③', '')
+s += marker(710, 368, '④', '')
+s += f'<text x="100" y="160" font-size="11" font-weight="700" fill="{ACCENT}">로고</text>'
+s += f'<text x="730" y="160" font-size="11" font-weight="700" fill="{ACCENT}">상단 CTA</text>'
+s += f'<text x="100" y="395" font-size="11" font-weight="700" fill="{ACCENT}">서브 정보</text>'
+s += f'<text x="640" y="408" font-size="11" font-weight="700" fill="{ACCENT}">메인 CTA</text>'
+s += caption(40, 440, "→ 시각 요소 위주 페이지에서는 ①로고 → ②상단 CTA → ③서브 정보 → ④메인 CTA의 대각선 동선이 형성됨")
+save("02-5-continuity-z-pattern", s, h=470)
+
 # ==================== 2.6 Closure — Skeleton screen ====================
 s = title(40, 50, "Skeleton screen — 폐쇄성으로 곧 채워질 구조를 미리 보임")
 # Two side-by-side: spinner vs skeleton
