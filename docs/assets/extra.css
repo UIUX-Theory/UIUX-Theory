@@ -11,10 +11,86 @@
   --md-accent-fg-color:         #8A6FF6;
 }
 
-/* Larger inline images so SVG mockups stay readable */
+/* ---------- Readability: measure, rhythm ---------- */
+.md-grid {
+  max-width: 1240px;
+}
+.md-typeset {
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+.md-typeset p,
+.md-typeset ul,
+.md-typeset ol {
+  max-width: 46rem; /* ~70 chars Korean — comfortable reading measure */
+}
+.md-typeset li {
+  margin-bottom: 0.35em;
+}
+
+/* ---------- Heading hierarchy ---------- */
+/* H2 = chapter/principle: strong section break */
+.md-typeset h2 {
+  margin-top: 4rem;
+  padding-top: 1.6rem;
+  border-top: 2px solid #6541F2;
+  font-weight: 800;
+  color: var(--md-default-fg-color);
+}
+.md-typeset h2:first-of-type {
+  margin-top: 1rem;
+  border-top: none;
+  padding-top: 0;
+}
+/* H3 block labels (정의/왜/패턴/상호작용/체크리스트): eyebrow style */
+.md-typeset h3.block-label {
+  margin-top: 2.4rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #6541F2;
+}
+.md-typeset h3.block-label::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  margin-right: 8px;
+  vertical-align: 4px;
+  border-radius: 2px;
+  background: #6541F2;
+}
+[data-md-color-scheme="slate"] .md-typeset h3.block-label,
+[data-md-color-scheme="slate"] .md-typeset h3.block-label::before {
+  color: #9F87F8;
+  background-color: #9F87F8;
+}
+
+/* ---------- Collapsible spec lists ---------- */
+.md-typeset details.note,
+.md-typeset details.info {
+  max-width: 46rem;
+  border-radius: 10px;
+  border-left-width: 3px;
+}
+.md-typeset details > summary {
+  font-weight: 700;
+}
+.md-typeset details li {
+  font-size: 0.95em;
+}
+
+/* ---------- Images ---------- */
 .md-typeset img {
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 12px;
+  margin: 0.4rem 0;
+}
+/* Image caption blockquote directly under an image */
+.md-typeset blockquote {
+  max-width: 46rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.92em;
 }
 
 /* Tighten blockquote captions used for image descriptions */
