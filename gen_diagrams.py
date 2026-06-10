@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""게슈탈트 원리 설명용 추상 다이어그램 생성 (SVG + PNG). 브랜드 톤: grayscale + amber."""
+"""게슈탈트 원리 설명용 추상 다이어그램 생성 (SVG + PNG). 브랜드 톤: grayscale + accent (#6541F2)."""
 import math, cairosvg, os
 
 ASSETS = os.path.join(os.path.dirname(__file__), "assets")
@@ -10,7 +10,7 @@ HI      = "#D2D2D2"
 DOM     = "#B0B0B0"
 MID     = "#8C8C8C"
 FLOOR   = "#707070"
-AMBER   = "#FFB919"
+ACCENT   = "#6541F2"
 INK     = "#5A5A5A"
 W, H    = 720, 360
 
@@ -35,7 +35,7 @@ def save(name, svg):
 # 01 프레그난츠: 겹친 두 단순 도형 → 복잡함을 단순한 두 형태로 본다
 s = ''
 s += f'<rect x="240" y="95" width="180" height="180" rx="14" fill="{MID}" opacity="0.9"/>'
-s += f'<circle cx="470" cy="200" r="98" fill="{AMBER}" opacity="0.88"/>'
+s += f'<circle cx="470" cy="200" r="98" fill="{ACCENT}" opacity="0.88"/>'
 save("01-pragnanz", frame(s))
 
 # 02-1 근접성: 좌(균등 그리드) vs 우(3개 클러스터)
@@ -56,7 +56,7 @@ save("02-1-proximity", frame(s))
 s = ''
 for r in range(4):
     for c in range(5):
-        fill = AMBER if r == 1 else DOM
+        fill = ACCENT if r == 1 else DOM
         s += dot(120 + c*120, 90 + r*65, r=22, fill=fill)
 save("02-2-similarity", frame(s))
 
@@ -65,26 +65,26 @@ s = ''
 for r in range(2):
     for c in range(4):
         s += dot(150 + c*145, 140 + r*90)
-s += f'<rect x="555" y="95" width="245" height="180" rx="18" fill="{AMBER}" opacity="0.16" stroke="{AMBER}" stroke-width="3"/>'
+s += f'<rect x="555" y="95" width="245" height="180" rx="18" fill="{ACCENT}" opacity="0.16" stroke="{ACCENT}" stroke-width="3"/>'
 # move box inside frame: redo with box around right two columns (x cols at 150,295,440,585)
 s = ''
 cols = [150, 295, 440, 585]
 for r in range(2):
     for c in range(4):
         s += dot(cols[c], 140 + r*90)
-s += f'<rect x="400" y="95" width="245" height="180" rx="18" fill="{AMBER}" opacity="0.15" stroke="{AMBER}" stroke-width="3"/>'
+s += f'<rect x="400" y="95" width="245" height="180" rx="18" fill="{ACCENT}" opacity="0.15" stroke="{ACCENT}" stroke-width="3"/>'
 save("02-3-common-region", frame(s))
 
 # 02-4 연결성: 위(분리) vs 아래(선으로 연결 → 묶임)
 s = ''
 s += dot(250, 115); s += dot(470, 115)
 s += f'<line x1="270" y1="255" x2="450" y2="255" stroke="{INK}" stroke-width="6"/>'
-s += dot(250, 255, fill=DOM); s += dot(470, 255, fill=AMBER)
+s += dot(250, 255, fill=DOM); s += dot(470, 255, fill=ACCENT)
 save("02-4-connectedness", frame(s))
 
 # 02-5 연속성: 두 매끄러운 곡선이 교차 → 4조각이 아닌 2개의 연속선
 s = ''
-s += f'<path d="M70,90 C260,90 460,270 650,270" fill="none" stroke="{AMBER}" stroke-width="7" stroke-linecap="round"/>'
+s += f'<path d="M70,90 C260,90 460,270 650,270" fill="none" stroke="{ACCENT}" stroke-width="7" stroke-linecap="round"/>'
 s += f'<path d="M70,270 C260,270 460,90 650,90" fill="none" stroke="{MID}" stroke-width="7" stroke-linecap="round"/>'
 save("02-5-continuity", frame(s))
 
@@ -114,13 +114,13 @@ s = ''
 s += f'<rect x="40" y="40" width="640" height="280" rx="14" fill="{FLOOR}"/>'
 s += f'<rect x="218" y="118" width="290" height="150" rx="14" fill="#000000" opacity="0.22"/>'  # shadow
 s += f'<rect x="210" y="108" width="290" height="150" rx="14" fill="{HI}"/>'
-s += f'<rect x="234" y="132" width="120" height="16" rx="8" fill="{AMBER}"/>'
+s += f'<rect x="234" y="132" width="120" height="16" rx="8" fill="{ACCENT}"/>'
 s += f'<rect x="234" y="162" width="240" height="10" rx="5" fill="{DOM}"/>'
 s += f'<rect x="234" y="184" width="200" height="10" rx="5" fill="{DOM}"/>'
 save("02-7-figure-ground", frame(s))
 
 # 02-8 공동운명: 같은 방향(위) 화살표끼리 묶임, 다른 방향 하나 분리
-def arrow(cx, cy, up=True, color=AMBER):
+def arrow(cx, cy, up=True, color=ACCENT):
     d = -1 if up else 1
     shaft = f'<line x1="{cx}" y1="{cy- d*0}" x2="{cx}" y2="{cy + d*42}" stroke="{color}" stroke-width="6"/>'
     head_y = cy + d*42
@@ -131,31 +131,15 @@ xs = [110, 230, 350, 470, 590]
 for i, x in enumerate(xs):
     up = not (i == 3)  # one different direction
     s += dot(x, 180, r=18, fill=(DOM if up else MID))
-    s += arrow(x, 152 if up else 208, up=up, color=(AMBER if up else INK))
+    s += arrow(x, 152 if up else 208, up=up, color=(ACCENT if up else INK))
 save("02-8-common-fate", frame(s))
 
 # 02-9 대칭/질서: 좌우 대칭 브래킷이 하나의 단위로 묶임
 s = ''
 s += f'<path d="M300,90 C235,90 235,270 300,270" fill="none" stroke="{MID}" stroke-width="12" stroke-linecap="round"/>'
 s += f'<path d="M420,90 C485,90 485,270 420,270" fill="none" stroke="{MID}" stroke-width="12" stroke-linecap="round"/>'
-s += dot(360, 180, r=26, fill=AMBER)
+s += dot(360, 180, r=26, fill=ACCENT)
 save("02-9-symmetry", frame(s))
 
-# 05 안티패턴: 좌(모호한 간격, ✗) vs 우(명확한 그룹, ✓)
-s = ''
-s += f'<line x1="360" y1="50" x2="360" y2="310" stroke="{HI}" stroke-width="2" stroke-dasharray="6 8"/>'
-# left: 6 rows ambiguous (near-equal gaps)
-for i in range(6):
-    s += f'<rect x="70" y="{70 + i*38}" width="200" height="22" rx="6" fill="{DOM}"/>'
-# X mark
-s += f'<line x1="150" y1="320" x2="170" y2="340" stroke="{INK}" stroke-width="5"/>'
-s += f'<line x1="170" y1="320" x2="150" y2="340" stroke="{INK}" stroke-width="5"/>'
-# right: 2 groups of 3 with clear gap
-ys = [70,108,146, 210,248,286]
-for i, y in enumerate(ys):
-    s += f'<rect x="450" y="{y}" width="200" height="22" rx="6" fill="{DOM}"/>'
-# check mark
-s += f'<polyline points="540,322 552,338 575,312" fill="none" stroke="{AMBER}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'
-save("05-antipattern", frame(s))
 
 print("DONE")

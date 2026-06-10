@@ -1,7 +1,8 @@
 # 게슈탈트 시지각 원리 → UI/UX 적용 레퍼런스
 
 > **목적** — 게슈탈트 시지각 이론을 깊게 이해하고, 그 원리를 화면 설계(레이아웃·그룹핑·시각 위계)에 적용하기 위한 개인 학습/작업 레퍼런스.
-> **작성일** — 2026-06-10 · **버전** — v0.1 · **관리** — GitHub private repo (이미지는 `assets/`에 상대경로로 관리)
+> **작성일** — 2026-06-10 · **버전** — v0.2 · **관리** — GitHub private repo (이미지는 `assets/`에 상대경로로 관리)
+> **변경** — v0.2: 메인 컬러 `#6541F2` 통일, 9개 UI/UX 예시(SVG + HTML 데모) 추가, 안티패턴 6개 비교 이미지 추가, placeholder 시각화
 
 ---
 
@@ -31,6 +32,12 @@
 3. [시각 위계 Visual Hierarchy](#3-시각-위계-visual-hierarchy)
 4. [화면 적용 케이스 스터디](#4-화면-적용-케이스-스터디)
 5. [안티패턴 / 흔한 실수](#5-안티패턴--흔한-실수)
+   - [5.1 어중간한 간격](#51-어중간한-간격)
+   - [5.2 유사성 과용](#52-유사성-과용)
+   - [5.3 상자 천지](#53-상자-천지)
+   - [5.4 전부 강조 = 강조 없음](#54-전부-강조--강조-없음)
+   - [5.5 과한 폐쇄성 / 생략](#55-과한-폐쇄성--생략)
+   - [5.6 배경 위 저대비 텍스트](#56-배경-위-저대비-텍스트)
 6. [실무 체크리스트](#6-실무-체크리스트)
 7. [참고 자료](#7-참고-자료)
 8. [부록: 용어집](#8-부록-용어집)
@@ -58,7 +65,8 @@
 - 신호가 모호하면 → 뇌가 "잘못된 그룹"을 만들어 오해·이탈로 이어진다.
 - 핵심: **간격·정렬·색·테두리 같은 작은 선택이 "무엇이 한 묶음인지"를 결정**한다.
 
-루빈의 꽃병(figure-ground) 또는 점으로 된 단순 그룹핑 예시 한 장. → `assets/01-pragnanz.png`
+![프레그난츠: 복잡함을 단순한 두 형태로 본다](./assets/01-pragnanz.png)
+> 겹친 사각형과 원이 하나의 복잡한 윤곽이 아니라 두 개의 단순한 도형으로 분리되어 보인다 — 단순성으로 향하는 지각의 기본 경향.
 
 ---
 
@@ -294,7 +302,7 @@
 ![공동운명: 함께 움직이면 한 묶음](./assets/02-8-common-fate.png)
 > 정적 매체라 표현이 어려우면, 함께 펼쳐지는 서브메뉴/아코디언의 전·후 프레임 2장 또는 움직임 방향 화살표로 표현.
 
-**왜 (인지 원리)** — 움직임의 동기화는 매우 강한 그룹핑 단서다. 자연계에서 함께 움직이는 것은 대개 같은 객체이기 때문이다. 폐쇄성·전경배경과도 상호작용해, 함께 움직이는 요소를 전경으로 부각시킬 수 있다.
+**왜 (인지 원리)** — 움직임의 동기화는 매우 강한 그룹핑 단서다. 자연계에서 함께 움직이는 것은 대개 같은 객체이기 때문이다. 폐쇄성·전경-배경과도 상호작용해, 함께 움직이는 요소를 전경으로 부각시킬 수 있다.
 
 **UI/UX 적용**
 
@@ -366,7 +374,8 @@
 - NN/g — The Gestalt Principles for UI Design (위계·스케일·대비 종합): https://www.nngroup.com/videos/the-gestalt-principles-intro/
 - NN/g — Visual Design 용어집/치트시트: https://www.nngroup.com/articles/visual-design-cheat-sheet/
 
-내가 작업한 화면 한 장을 두고, 그룹 경계를 색 오버레이로 그려 "어떤 법칙이 어디서 작동하는지" 분석 주석을 단 이미지. → `assets/03-hierarchy-annotated.png`
+![위계 분석 placeholder](./assets/03-hierarchy-annotated.svg)
+> 본인 작업 화면 한 장에 그룹 경계를 색 오버레이로 그려 "어떤 법칙이 어디서 작동하는지" 분석 주석을 단 이미지로 교체하세요 (`assets/03-hierarchy-annotated.png`).
 
 ---
 
@@ -392,20 +401,45 @@
 
 ### 4.5 이벤트 페이지 *(실무 직결 — 직접 사례 채우기)*
 - 작동 법칙: **전경-배경**(혜택/CTA 강조) + **근접성**(혜택 묶음) + **유사성**(반복 모듈)
-- 내가 만든 이벤트 페이지 캡처 + 그룹 분석 주석 → `assets/04-5-event-page.png`
+
+![이벤트 페이지 placeholder](./assets/04-5-event-page.svg)
+> 본인이 만든 이벤트 페이지 캡처 + 그룹 분석 주석으로 교체하세요 (`assets/04-5-event-page.png`).
 
 ---
 
 ## 5. 안티패턴 / 흔한 실수
 
-- **어중간한 간격** — 그룹 내부와 그룹 사이 간격 차이가 작아 묶음이 모호함. → 간격 대비를 키운다.
-- **유사성 과용** — 모든 버튼이 같은 색/크기 → 위계 소실, 주요 행동이 안 보임. → 주요 CTA만 차별화.
-- **상자 천지** — 모든 그룹에 테두리/박스 → 시각 복잡도 폭발. → 여백 우선, 경계는 최소.
-- **"전부 강조 = 강조 없음"** — 강조 요소가 너무 많으면 전경이 사라진다. → 화면당 핵심 전경은 1~2개.
-- **과한 폐쇄성/생략** — 정보가 부족해 형태 인식 실패. → 핵심 단서는 남긴다.
-- **배경 위 저대비 텍스트** — 전경-배경 분리 실패로 가독성 붕괴. → 오버레이/그림자 보강.
+각 항목은 **✗ 잘못된 예 ↔ ✓ 바로잡은 예** 비교 이미지가 함께 있습니다.
 
-좋은 예 ↔ 나쁜 예를 나란히 둔 비교 이미지(직접 제작 또는 본인 작업 전/후). → `assets/05-antipattern.png`
+### 5.1 어중간한 간격
+그룹 내부와 그룹 사이 간격 차이가 작아 묶음이 모호해진다. → **간격 대비를 키운다.**
+
+![어중간한 간격 vs 그룹 간격 대비](./assets/examples/05-1-spacing.svg)
+
+### 5.2 유사성 과용
+모든 버튼이 같은 색·크기 → 위계가 사라져 주요 행동이 안 보인다. → **주요 CTA만 채움 색·다른 형태로 차별화.**
+
+![모든 버튼 동일 강조 vs 주요 CTA만 차별화](./assets/examples/05-2-similarity-overuse.svg)
+
+### 5.3 상자 천지
+모든 그룹에 테두리·박스를 두르면 시각 복잡도가 폭발한다. → **여백 → 배경색 → 테두리 순으로 가볍게.**
+
+![상자 천지 vs 여백 우선](./assets/examples/05-3-box-everywhere.svg)
+
+### 5.4 전부 강조 = 강조 없음
+강조 요소가 너무 많으면 전경이 사라진다. → **화면당 핵심 전경은 1~2개.**
+
+![모든 텍스트 강조 vs 한 곳만 강조](./assets/examples/05-4-emphasis-everywhere.svg)
+
+### 5.5 과한 폐쇄성 / 생략
+정보가 너무 부족하면 형태 인식에 실패한다. → **윤곽을 암시할 최소 단서는 남긴다.**
+
+![과한 생략 vs 충분한 단서](./assets/examples/05-5-over-closure.svg)
+
+### 5.6 배경 위 저대비 텍스트
+전경-배경 분리가 깨지면 가독성이 무너진다. → **그라디언트 오버레이/그림자로 대비 보강.**
+
+![저대비 텍스트 vs 오버레이 + 고대비](./assets/examples/05-6-low-contrast.svg)
 
 ---
 
@@ -433,7 +467,7 @@
   http://psychclassics.yorku.ca/Wertheimer/Forms/forms.htm
 
 ### 현대 학술 종합 리뷰 (깊이의 핵심 · 오픈 액세스)
-- **Wagemans et al. (2012). A century of Gestalt psychology in visual perception: I. Perceptual grouping and figure–ground organization.** *Psychological Bulletin.* — 그룹핑·전경배경 100년 연구 정리. PMC 무료:
+- **Wagemans et al. (2012). A century of Gestalt psychology in visual perception: I. Perceptual grouping and figure–ground organization.** *Psychological Bulletin.* — 그룹핑·전경-배경 100년 연구 정리. PMC 무료:
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3482144/
 - **Wagemans et al. (2012). II. Conceptual and theoretical foundations.** — 프레그난츠/단순성 등 이론적 기초:
   https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3728284/
