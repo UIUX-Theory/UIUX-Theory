@@ -74,28 +74,26 @@
 }
 
 /* ---------- Collapsible spec lists: neutral, quiet ---------- */
-.md-typeset details.note,
-.md-typeset details.info {
+/* html-prefixed for specificity to override Material's .note/.info colors */
+html .md-typeset details.note,
+html .md-typeset details.info {
   max-width: 46rem;
   border: 1px solid rgba(128, 128, 128, 0.20);
   border-radius: 10px;
   box-shadow: none;
   background: transparent;
 }
-/* Drop the colored icon and tinted header */
-.md-typeset details.note > summary,
-.md-typeset details.info > summary {
+html .md-typeset details.note > summary,
+html .md-typeset details.info > summary {
   background: transparent;
   font-weight: 600;
   color: var(--md-default-fg-color);
-}
-.md-typeset details.note > summary::before,
-.md-typeset details.info > summary::before {
-  display: none;
-}
-.md-typeset details.note > summary,
-.md-typeset details.info > summary {
   padding-left: 1rem;
+}
+/* Hide the colored circular icon */
+html .md-typeset details.note > summary::before,
+html .md-typeset details.info > summary::before {
+  display: none;
 }
 /* Chevron: down when collapsed, up when expanded */
 .md-typeset details > summary::after {
