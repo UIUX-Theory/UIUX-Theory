@@ -35,12 +35,15 @@ DIV = f'<line x1="440" y1="40" x2="440" y2="{H-40}" stroke="{HI}" stroke-width="
 # 05-1 어중간한 간격 — 모호한 행간 vs 명확한 그룹 간격
 s = DIV
 s += label(40, 60, "모호한 간격 — 그룹이 안 보임", False)
+# left: 6 boxes evenly spaced, span 90→400 (gap≈62 row pitch)
 for i in range(6):
-    s += f'<rect x="40" y="{90 + i*48}" width="360" height="34" rx="6" fill="{WHITE}" stroke="{HI}"/>'
-    s += f'<rect x="58" y="{100 + i*48}" width="180" height="10" rx="5" fill="{INK}"/>'
-    s += f'<rect x="58" y="{116 + i*48}" width="240" height="6" rx="3" fill="{DOM}"/>'
+    y = 90 + i*62
+    s += f'<rect x="40" y="{y}" width="360" height="34" rx="6" fill="{WHITE}" stroke="{HI}"/>'
+    s += f'<rect x="58" y="{y+10}" width="180" height="10" rx="5" fill="{INK}"/>'
+    s += f'<rect x="58" y="{y+26}" width="240" height="6" rx="3" fill="{DOM}"/>'
 s += label(460, 60, "그룹 간격 대비 — 3+3 묶음", True)
-ys = [90, 138, 186, 270, 318, 366]
+# right: 3+3 with same end-y so both columns align at bottom
+ys = [90, 138, 186, 290, 338, 386]
 for i, y in enumerate(ys):
     s += f'<rect x="460" y="{y}" width="360" height="34" rx="6" fill="{WHITE}" stroke="{HI}"/>'
     s += f'<rect x="478" y="{y+10}" width="180" height="10" rx="5" fill="{INK}"/>'
@@ -88,6 +91,44 @@ s += f'<rect x="650" y="218" width="160" height="6" rx="3" fill="{DOM}"/>'
 s += f'<rect x="478" y="290" width="160" height="10" rx="5" fill="{INK}"/>'
 s += f'<rect x="478" y="308" width="320" height="6" rx="3" fill="{DOM}"/>'
 save("05-3-box-everywhere", s)
+
+# 05-3b 상자 천지 — 카드 안의 카드 (nested) vs 단일 카드 + 여백
+s = DIV
+s += label(40, 60, "중첩 카드 — 깊이 인지 혼란", False)
+# outer card
+s += f'<rect x="40" y="90" width="380" height="320" rx="14" fill="{WHITE}" stroke="{ACCENT}" stroke-width="2"/>'
+# inner cards stacked
+for i, y in enumerate([110, 200, 290]):
+    s += f'<rect x="58" y="{y}" width="344" height="78" rx="10" fill="{TINT}" stroke="{ACCENT}" stroke-width="1.5"/>'
+    s += f'<rect x="76" y="{y+18}" width="140" height="10" rx="5" fill="{INK}"/>'
+    # inner-inner box
+    s += f'<rect x="76" y="{y+38}" width="280" height="26" rx="8" fill="{WHITE}" stroke="{DOM}"/>'
+s += label(460, 60, "단일 카드 + 섹션 여백", True)
+s += f'<rect x="460" y="90" width="380" height="320" rx="14" fill="{WHITE}" stroke="{HI}"/>'
+for i, y in enumerate([114, 218, 322]):
+    s += f'<rect x="480" y="{y}" width="140" height="10" rx="5" fill="{INK}"/>'
+    s += f'<rect x="480" y="{y+18}" width="320" height="8" rx="4" fill="{DOM}"/>'
+    s += f'<rect x="480" y="{y+32}" width="260" height="8" rx="4" fill="{DOM}"/>'
+    if i < 2:
+        s += f'<line x1="480" y1="{y+66}" x2="820" y2="{y+66}" stroke="{HI}" stroke-width="1" stroke-dasharray="2 4"/>'
+save("05-3b-nested-cards", s)
+
+# 05-3c 상자 천지 — 모든 폼 필드를 박스로 감싸기 vs 라벨+필드만
+s = DIV
+s += label(40, 60, "필드마다 카드 — 폼 산만", False)
+fields = ["이메일", "이름", "전화번호", "회사명"]
+for i, lab in enumerate(fields):
+    y = 96 + i*78
+    # outer card wrapping label + field
+    s += f'<rect x="40" y="{y}" width="380" height="62" rx="12" fill="{WHITE}" stroke="{ACCENT}" stroke-width="1.5"/>'
+    s += f'<text x="60" y="{y+22}" font-size="12" fill="{MID}">{lab}</text>'
+    s += f'<rect x="60" y="{y+30}" width="340" height="22" rx="6" fill="{BG}" stroke="{DOM}"/>'
+s += label(460, 60, "라벨 + 필드만 — 간결", True)
+for i, lab in enumerate(fields):
+    y = 96 + i*78
+    s += f'<text x="460" y="{y+12}" font-size="12" fill="{INK}" font-weight="600">{lab}</text>'
+    s += f'<rect x="460" y="{y+22}" width="360" height="36" rx="8" fill="{WHITE}" stroke="{DOM}"/>'
+save("05-3c-boxed-fields", s)
 
 # 05-4 전부 강조 = 강조 없음 — 모든 텍스트 색/굵게 vs 핵심만 강조
 s = DIV
