@@ -73,15 +73,29 @@
   background: #9F87F8;
 }
 
-/* ---------- Collapsible spec lists ---------- */
+/* ---------- Collapsible spec lists: neutral, quiet ---------- */
 .md-typeset details.note,
 .md-typeset details.info {
   max-width: 46rem;
+  border: 1px solid rgba(128, 128, 128, 0.20);
   border-radius: 10px;
-  border-left-width: 3px;
+  box-shadow: none;
+  background: transparent;
 }
-.md-typeset details > summary {
-  font-weight: 700;
+/* Drop the colored icon and tinted header */
+.md-typeset details.note > summary,
+.md-typeset details.info > summary {
+  background: transparent;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+.md-typeset details.note > summary::before,
+.md-typeset details.info > summary::before {
+  display: none;
+}
+.md-typeset details.note > summary,
+.md-typeset details.info > summary {
+  padding-left: 1rem;
 }
 /* Chevron: down when collapsed, up when expanded */
 .md-typeset details > summary::after {
@@ -89,6 +103,9 @@
 }
 .md-typeset details[open] > summary::after {
   transform: rotate(-90deg);
+}
+.md-typeset details li {
+  font-size: 0.95em;
 }
 .md-typeset details li {
   font-size: 0.95em;
