@@ -95,6 +95,11 @@ html .md-typeset details.note > summary::before,
 html .md-typeset details.info > summary::before {
   display: none;
 }
+/* Neutral chevron color (Material defaults blue for note/info) */
+html .md-typeset details.note > summary::after,
+html .md-typeset details.info > summary::after {
+  color: var(--md-default-fg-color--light);
+}
 /* Chevron: down when collapsed, up when expanded */
 .md-typeset details > summary::after {
   transform: rotate(90deg);
