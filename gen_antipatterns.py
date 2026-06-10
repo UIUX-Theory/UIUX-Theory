@@ -35,15 +35,16 @@ DIV = f'<line x1="440" y1="40" x2="440" y2="{H-40}" stroke="{HI}" stroke-width="
 # 05-1 어중간한 간격 — 모호한 행간 vs 명확한 그룹 간격
 s = DIV
 s += label(40, 60, "모호한 간격 — 그룹이 안 보임", False)
-# left: 6 boxes evenly spaced, span 90→400 (gap≈62 row pitch)
+# Both columns end at last-box-bottom y≈410 (≈50px margin top & bottom in H=460)
+# Left: 6 evenly-spaced boxes, pitch 57
 for i in range(6):
-    y = 90 + i*62
+    y = 90 + i*57
     s += f'<rect x="40" y="{y}" width="360" height="34" rx="6" fill="{WHITE}" stroke="{HI}"/>'
     s += f'<rect x="58" y="{y+10}" width="180" height="10" rx="5" fill="{INK}"/>'
     s += f'<rect x="58" y="{y+26}" width="240" height="6" rx="3" fill="{DOM}"/>'
 s += label(460, 60, "그룹 간격 대비 — 3+3 묶음", True)
-# right: 3+3 with same end-y so both columns align at bottom
-ys = [90, 138, 186, 290, 338, 386]
+# Right: top group [90, 138, 186], bottom group [280, 328, 376] — group gap 60
+ys = [90, 138, 186, 280, 328, 376]
 for i, y in enumerate(ys):
     s += f'<rect x="460" y="{y}" width="360" height="34" rx="6" fill="{WHITE}" stroke="{HI}"/>'
     s += f'<rect x="478" y="{y+10}" width="180" height="10" rx="5" fill="{INK}"/>'
