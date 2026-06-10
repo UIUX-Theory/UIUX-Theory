@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""게슈탈트 원리 설명용 추상 다이어그램 생성 (SVG + PNG). 브랜드 톤: grayscale + accent (#6541F2)."""
-import math, cairosvg, os
+"""게슈탈트 원리 설명용 추상 다이어그램 생성 (SVG only). 브랜드 톤: grayscale + accent (#6541F2)."""
+import math, os
 
 ASSETS = os.path.join(os.path.dirname(__file__), "assets")
 os.makedirs(ASSETS, exist_ok=True)
@@ -25,11 +25,8 @@ def dot(cx, cy, r=20, fill=MID, **kw):
 
 def save(name, svg):
     svg_path = os.path.join(ASSETS, name + ".svg")
-    png_path = os.path.join(ASSETS, name + ".png")
     with open(svg_path, "w") as f:
         f.write(svg)
-    cairosvg.svg2png(bytestring=svg.encode(), write_to=png_path,
-                     output_width=W*2, output_height=H*2)
     print("saved", name)
 
 # 01 프레그난츠: 겹친 두 단순 도형 → 복잡함을 단순한 두 형태로 본다

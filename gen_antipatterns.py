@@ -40,15 +40,15 @@ s += label(40, 60, "모호한 간격 — 그룹이 안 보임", False)
 for i in range(6):
     y = 90 + i*57
     s += f'<rect x="40" y="{y}" width="360" height="34" rx="6" fill="{WHITE}" stroke="{HI}"/>'
-    s += f'<rect x="58" y="{y+10}" width="180" height="10" rx="5" fill="{INK}"/>'
-    s += f'<rect x="58" y="{y+26}" width="240" height="6" rx="3" fill="{DOM}"/>'
+    s += f'<rect x="58" y="{y+8}" width="180" height="10" rx="5" fill="{INK}"/>'
+    s += f'<rect x="58" y="{y+22}" width="240" height="6" rx="3" fill="{DOM}"/>'
 s += label(460, 60, "그룹 간격 대비 — 3+3 묶음", True)
 # Right: top group [90, 138, 186], bottom group [280, 328, 376] — group gap 60
 ys = [90, 138, 186, 280, 328, 376]
 for i, y in enumerate(ys):
     s += f'<rect x="460" y="{y}" width="360" height="34" rx="6" fill="{WHITE}" stroke="{HI}"/>'
-    s += f'<rect x="478" y="{y+10}" width="180" height="10" rx="5" fill="{INK}"/>'
-    s += f'<rect x="478" y="{y+26}" width="240" height="6" rx="3" fill="{DOM}"/>'
+    s += f'<rect x="478" y="{y+8}" width="180" height="10" rx="5" fill="{INK}"/>'
+    s += f'<rect x="478" y="{y+22}" width="240" height="6" rx="3" fill="{DOM}"/>'
 save("05-1-spacing", s)
 
 # 05-2 유사성 과용 — 모든 버튼 같은 색 vs 주요 CTA만 채움
