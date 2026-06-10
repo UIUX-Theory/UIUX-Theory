@@ -60,10 +60,11 @@
   border-radius: 2px;
   background: #6541F2;
 }
-[data-md-color-scheme="slate"] .md-typeset h3.block-label,
-[data-md-color-scheme="slate"] .md-typeset h3.block-label::before {
+[data-md-color-scheme="slate"] .md-typeset h3.block-label {
   color: #9F87F8;
-  background-color: #9F87F8;
+}
+[data-md-color-scheme="slate"] .md-typeset h3.block-label::before {
+  background: #9F87F8;
 }
 
 /* ---------- Collapsible spec lists ---------- */
