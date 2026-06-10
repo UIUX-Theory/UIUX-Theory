@@ -11,6 +11,12 @@
   --md-accent-fg-color:         #8A6FF6;
 }
 
+/* Sidebar: hide the site-title row (already in the header) so the
+   page entry + anchor TOC appear once, not twice */
+.md-nav--primary > .md-nav__title {
+  display: none;
+}
+
 /* ---------- Readability: measure, rhythm ---------- */
 .md-grid {
   max-width: 1240px;
