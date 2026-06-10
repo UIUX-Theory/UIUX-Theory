@@ -2,7 +2,7 @@
 """5장 안티패턴 6개 각각의 ✗ vs ✓ 비교 SVG 생성. gen_examples.py와 동일 팔레트."""
 import os
 
-OUT = os.path.join(os.path.dirname(__file__), "assets", "examples")
+OUT = os.path.join(os.path.dirname(__file__), "docs", "assets", "examples")
 os.makedirs(OUT, exist_ok=True)
 
 BG, INK, MID, DOM, HI, FLOOR, ACCENT, WHITE = (

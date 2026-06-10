@@ -2,7 +2,7 @@
 """게슈탈트 원리 설명용 추상 다이어그램 생성 (SVG only). 브랜드 톤: grayscale + accent (#6541F2)."""
 import math, os
 
-ASSETS = os.path.join(os.path.dirname(__file__), "assets")
+ASSETS = os.path.join(os.path.dirname(__file__), "docs", "assets")
 os.makedirs(ASSETS, exist_ok=True)
 
 BG      = "#EBEBEB"

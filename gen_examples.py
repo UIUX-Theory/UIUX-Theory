@@ -2,7 +2,7 @@
 """UI/UX 적용 예시 목업 생성 (SVG + HTML). 톤: grayscale + accent (#6541F2), gen_diagrams.py와 동일 팔레트."""
 import os, textwrap
 
-OUT = os.path.join(os.path.dirname(__file__), "assets", "examples")
+OUT = os.path.join(os.path.dirname(__file__), "docs", "assets", "examples")
 os.makedirs(OUT, exist_ok=True)
 
 BG, INK, MID, DOM, HI, FLOOR, ACCENT, WHITE = (

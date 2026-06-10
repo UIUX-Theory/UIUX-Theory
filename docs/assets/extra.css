@@ -1,0 +1,23 @@
+/* Override Material's default deep-purple to project accent #6541F2 */
+:root {
+  --md-primary-fg-color:        #6541F2;
+  --md-primary-fg-color--light: #8A6FF6;
+  --md-primary-fg-color--dark:  #4527B8;
+  --md-accent-fg-color:         #6541F2;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #6541F2;
+  --md-accent-fg-color:         #8A6FF6;
+}
+
+/* Larger inline images so SVG mockups stay readable */
+.md-typeset img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Tighten blockquote captions used for image descriptions */
+.md-typeset blockquote {
+  border-left-color: #6541F2;
+}

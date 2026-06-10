@@ -2,7 +2,7 @@
 """§2 각 법칙별 보조 케이스 이미지 (메인 예시와 중복 X). 동일 팔레트."""
 import os, math
 
-OUT = os.path.join(os.path.dirname(__file__), "assets", "examples")
+OUT = os.path.join(os.path.dirname(__file__), "docs", "assets", "examples")
 os.makedirs(OUT, exist_ok=True)
 
 BG, INK, MID, DOM, HI, FLOOR, ACCENT, WHITE = (
