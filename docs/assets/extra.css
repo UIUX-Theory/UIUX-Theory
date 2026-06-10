@@ -21,3 +21,21 @@
 .md-typeset blockquote {
   border-left-color: #6541F2;
 }
+
+/* Fully-rounded (pill) search input */
+.md-search__form {
+  border-radius: 999px;
+  overflow: hidden;
+}
+.md-search__input {
+  border-radius: 999px;
+}
+/* Keep the pill shape while the suggestion dropdown is open */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+  border-radius: 999px;
+}
+.md-search__output {
+  margin-top: 4px;
+  border-radius: 16px;
+  overflow: hidden;
+}

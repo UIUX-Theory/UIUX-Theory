@@ -11,12 +11,10 @@ theme:
   features:
     - navigation.instant
     - navigation.tracking
-    - navigation.tabs
-    - navigation.sections
     - navigation.expand
     - navigation.top
     - navigation.indexes
-    - toc.follow
+    - toc.integrate
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -52,7 +50,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
-      toc_depth: 3
+      toc_depth: 2
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
@@ -74,23 +72,7 @@ plugins:
         - en
 
 nav:
-  - 개요: index.md
-  - 핵심 그룹핑 법칙:
-    - 근접성 Proximity: principles/proximity.md
-    - 유사성 Similarity: principles/similarity.md
-    - 공통 영역 Common Region: principles/common-region.md
-    - 연결성 Uniform Connectedness: principles/connectedness.md
-    - 연속성 Continuity: principles/continuity.md
-    - 폐쇄성 Closure: principles/closure.md
-    - 전경-배경 Figure/Ground: principles/figure-ground.md
-    - 공동운명 Common Fate: principles/common-fate.md
-    - 대칭과 질서 Symmetry: principles/symmetry.md
-  - 시각 위계: hierarchy.md
-  - 화면 적용 케이스: case-studies.md
-  - 안티패턴 / 흔한 실수: antipatterns.md
-  - 실무 체크리스트: checklist.md
-  - 참고 자료: references.md
-  - 부록 용어집: glossary.md
+  - 게슈탈트 → UI/UX: index.md
 
 extra:
   social:
