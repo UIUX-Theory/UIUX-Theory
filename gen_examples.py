@@ -149,7 +149,7 @@ def card(x, y, w, h, title, rows):
         out += f'<text x="{x+20}" y="{ry+14}" font-size="12" fill="{INK}">{label}</text>'
         fill = ACCENT if on else HI
         out += f'<rect x="{x+w-60}" y="{ry-2}" width="42" height="22" rx="11" fill="{fill}"/>'
-        cx = x+w-60 + (40 if on else 18)
+        cx = x+w-60 + (31 if on else 11)
         out += f'<circle cx="{cx}" cy="{ry+9}" r="8" fill="{WHITE}"/>'
     return out
 s += card(60, 70, 360, 240, "알림", [("이메일 알림", True), ("푸시 알림", True), ("주간 요약", False), ("프로모션", False)])
