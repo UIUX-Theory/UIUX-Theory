@@ -59,6 +59,12 @@
 > ![근접성 비율 가이드 — 라벨↔필드 vs 행간 1:3 이상](./assets/examples/02-1-proximity-ratio.svg)
 > *근접성 비율 가이드 — 라벨↔필드 vs 행간 1:3 이상*
 
+> ![카드 내부 패딩 vs 카드 간 gap — 비율로 묶음 결정](./assets/examples/02-1-proximity-card-padding.svg)
+> *카드 내부 패딩 vs 카드 간 gap — 비율로 묶음 결정*
+
+> ![터치 타겟 — 시각 그룹은 좁아도 히트 영역 44pt+](./assets/examples/02-1-proximity-touch-target.svg)
+> *터치 타겟 — 시각 그룹은 좁아도 히트 영역 44pt+*
+
 
 ??? note "폼·입력"
 
@@ -168,6 +174,12 @@
 > ![버튼 위계 4단계 — Primary / Secondary / Tertiary / Ghost](./assets/examples/02-2-similarity-button-hierarchy.svg)
 > *버튼 위계 4단계 — Primary / Secondary / Tertiary / Ghost*
 
+> ![상태 색 매핑 — 시스템 전체 1:1 고정](./assets/examples/02-2-similarity-status-color.svg)
+> *상태 색 매핑 — 시스템 전체 1:1 고정*
+
+> ![아이콘 스타일 일관성 — 한 시스템 한 스타일](./assets/examples/02-2-similarity-icon-style.svg)
+> *아이콘 스타일 일관성 — 한 시스템 한 스타일*
+
 
 ??? note "버튼 위계"
 
@@ -272,6 +284,12 @@
 > ![Elevation 시스템 — 0/1/3/8/16dp 위계](./assets/examples/02-3-common-region-elevation.svg)
 > *Elevation 시스템 — 0/1/3/8/16dp 위계*
 
+> ![컨테이너 변형 — Modal / Bottom sheet / Popover](./assets/examples/02-3-common-region-containers.svg)
+> *컨테이너 변형 — Modal / Bottom sheet / Popover*
+
+> ![인라인 콜아웃 — 본문 안의 다른 영역](./assets/examples/02-3-common-region-callout.svg)
+> *인라인 콜아웃 — 본문 안의 다른 영역*
+
 
 ??? note "카드 시스템"
 
@@ -369,6 +387,12 @@
 > ![연결성 컨트롤 변형 — segmented / tab / pill / 분리 버튼](./assets/examples/02-4-connectedness-variants.svg)
 > *연결성 컨트롤 변형 — segmented / tab / pill / 분리 버튼*
 
+> ![브레드크럼 + 트리 — 계층의 연결 신호](./assets/examples/02-4-connectedness-breadcrumb-tree.svg)
+> *브레드크럼 + 트리 — 계층의 연결 신호*
+
+> ![댓글 스레드 — 들여쓰기 + 세로선으로 부모-자식 연결](./assets/examples/02-4-connectedness-thread.svg)
+> *댓글 스레드 — 들여쓰기 + 세로선으로 부모-자식 연결*
+
 
 ??? note "단계·진행 인디케이터"
 
@@ -465,6 +489,9 @@
 
 > ![Z-패턴 시선 동선 — 시각 요소가 많은 페이지](./assets/examples/02-5-continuity-z-pattern.svg)
 > *Z-패턴 시선 동선 — 시각 요소가 많은 페이지*
+
+> ![그리드 정렬 — 시선이 흐르는 페이지 vs 어긋난 페이지](./assets/examples/02-5-continuity-alignment.svg)
+> *그리드 정렬 — 시선이 흐르는 페이지 vs 어긋난 페이지*
 
 
 ??? note "정렬·그리드 시스템"
@@ -667,6 +694,12 @@
 > ![버튼 상태별 figure-ground — default/hover/focus/active/disabled](./assets/examples/02-7-figure-ground-states.svg)
 > *버튼 상태별 figure-ground — default/hover/focus/active/disabled*
 
+> ![이미지 위 텍스트 — 그라디언트 scrim으로 가독성 확보](./assets/examples/02-7-figure-ground-scrim.svg)
+> *이미지 위 텍스트 — 그라디언트 scrim으로 가독성 확보*
+
+> ![CTA 강조 단계 — 텍스트 / outline / fill](./assets/examples/02-7-figure-ground-cta.svg)
+> *CTA 강조 단계 — 텍스트 / outline / fill*
+
 
 ??? note "모달·오버레이"
 
@@ -768,6 +801,12 @@
 > ![Tab indicator slide — 인디케이터가 함께 이동](./assets/examples/02-8-common-fate-tab-slide.svg)
 > *Tab indicator slide — 인디케이터가 함께 이동*
 
+> ![드래그 다중선택 — 함께 움직이면 한 그룹](./assets/examples/02-8-common-fate-drag-select.svg)
+> *드래그 다중선택 — 함께 움직이면 한 그룹*
+
+> ![Pull to refresh — 콘텐츠가 함께 끌려옴](./assets/examples/02-8-common-fate-pull-refresh.svg)
+> *Pull to refresh — 콘텐츠가 함께 끌려옴*
+
 
 ??? note "펼침·접힘"
 
@@ -867,6 +906,12 @@
 
 > ![8pt 그리드 시스템 — 카드·간격·CTA가 모두 8의 배수로 안착](./assets/examples/02-9-symmetry-8pt-grid.svg)
 > *8pt 그리드 시스템 — 카드·간격·CTA가 모두 8의 배수로 안착*
+
+> ![대칭 vs 비대칭 균형 — 시각 무게의 분배](./assets/examples/02-9-symmetry-balance.svg)
+> *대칭 vs 비대칭 균형 — 시각 무게의 분배*
+
+> ![광학적 중심 — 기하 중심 vs 시각 중심 보정](./assets/examples/02-9-symmetry-optical-center.svg)
+> *광학적 중심 — 기하 중심 vs 시각 중심 보정*
 
 
 ??? note "그리드 시스템"

@@ -456,3 +456,414 @@ s += f'<text x="440" y="332" font-size="12" fill="{MID}">• Material·HIG·Atla
 save("02-9-symmetry-8pt-grid", s)
 
 print("DONE")
+
+# ==================== 2.1 Proximity — Card padding vs gap ====================
+s = title(40, 50, "카드 내부 패딩 vs 카드 간 gap — 비율로 묶음 결정")
+s += caption(40, 90, "✗ 내부 패딩 > 카드 간 gap — 카드들이 한 덩어리로 보임")
+for i in range(3):
+    x = 60 + i*60
+    s += f'<rect x="{x}" y="120" width="44" height="80" rx="6" fill="{WHITE}" stroke="{HI}"/>'
+    s += f'<rect x="{x+6}" y="128" width="32" height="8" rx="4" fill="{INK}"/>'
+    s += f'<rect x="{x+6}" y="142" width="32" height="6" rx="3" fill="{DOM}"/>'
+s += caption(40, 220, "내부 28px, 카드 간 16px — 어디까지가 한 카드인지 모호")
+
+s += caption(440, 90, "✓ 내부 패딩 < 카드 간 gap — 카드가 분리되어 보임")
+for i in range(3):
+    x = 460 + i*100
+    s += f'<rect x="{x}" y="120" width="68" height="80" rx="6" fill="{WHITE}" stroke="{HI}"/>'
+    s += f'<rect x="{x+10}" y="128" width="48" height="8" rx="4" fill="{INK}"/>'
+    s += f'<rect x="{x+10}" y="144" width="48" height="6" rx="3" fill="{DOM}"/>'
+s += caption(440, 220, "내부 12px, 카드 간 32px (2:5 비율) — 카드 단위 명확")
+s += caption(40, 410, "→ 카드 내부 패딩 16–24px / 카드 간 gap 24–32px — 비율 1 : 1.3+ 권장")
+save("02-1-proximity-card-padding", s)
+
+# ==================== 2.1 Proximity — Touch target ====================
+s = title(40, 50, "터치 타겟 — 시각 그룹은 좁아도 히트 영역은 44pt 이상")
+s += caption(40, 90, "✗ 시각=히트 일치, 너무 작음 (28pt)")
+for i in range(4):
+    y = 130 + i*60
+    s += f'<rect x="60" y="{y}" width="180" height="28" rx="14" fill="{HI}"/>'
+    s += f'<text x="150" y="{y+19}" text-anchor="middle" font-size="13" fill="{INK}">옵션 {i+1}</text>'
+
+s += caption(440, 90, "✓ 시각 28pt + 투명 히트 44pt")
+for i in range(4):
+    y = 130 + i*60
+    s += f'<rect x="460" y="{y-8}" width="240" height="44" rx="14" fill="{ACCENT}" opacity="0.10"/>'
+    s += f'<rect x="480" y="{y}" width="180" height="28" rx="14" fill="{HI}"/>'
+    s += f'<text x="570" y="{y+19}" text-anchor="middle" font-size="13" fill="{INK}">옵션 {i+1}</text>'
+s += caption(440, 410, "투명 영역 = 실제 클릭 가능 — 시각 묶음과 히트 영역 분리")
+save("02-1-proximity-touch-target", s)
+
+# ==================== 2.2 Similarity — Status color mapping ====================
+s = title(40, 50, "상태 색 매핑 — 시스템 전체에서 1:1 고정")
+mapping = [
+    ("성공", "#1F9D55", "처리 완료"),
+    ("정보", "#3B82F6", "안내"),
+    ("경고", "#D97706", "확인 필요"),
+    ("오류", "#C53434", "처리 실패"),
+]
+# Two columns: chip variants — badge / dot / banner
+for i, (lab, col, msg) in enumerate(mapping):
+    y = 110 + i*70
+    s += f'<text x="40" y="{y+18}" font-size="14" font-weight="700" fill="{INK}">{lab}</text>'
+    # badge
+    s += f'<rect x="120" y="{y}" width="72" height="32" rx="16" fill="{col}"/>'
+    s += f'<text x="156" y="{y+21}" text-anchor="middle" font-size="12" font-weight="700" fill="{WHITE}">{lab}</text>'
+    # dot indicator
+    s += f'<circle cx="240" cy="{y+16}" r="6" fill="{col}"/>'
+    s += f'<text x="256" y="{y+21}" font-size="12" fill="{INK}">{msg}</text>'
+    # banner
+    s += f'<rect x="440" y="{y}" width="380" height="32" rx="8" fill="{col}" opacity="0.12" stroke="{col}" stroke-width="1.5"/>'
+    s += f'<circle cx="460" cy="{y+16}" r="6" fill="{col}"/>'
+    s += f'<text x="478" y="{y+21}" font-size="12" font-weight="600" fill="{col}">{lab}</text>'
+    s += f'<text x="510" y="{y+21}" font-size="12" fill="{INK}">— {msg}</text>'
+s += caption(40, 410, "→ 같은 의미는 항상 같은 색. badge·dot·banner 등 모양은 달라도 색 매핑은 고정")
+save("02-2-similarity-status-color", s)
+
+# ==================== 2.2 Similarity — Icon style consistency ====================
+s = title(40, 50, "아이콘 스타일 일관성 — 한 시스템 = 한 스타일")
+s += caption(40, 90, "✗ filled·outlined 혼용 — 같은 종류로 안 보임")
+icons = ['M-20,-20 L20,-20 L20,20 L-20,20 Z',  # square (placeholder)
+         'M0,-22 L22,0 L0,22 L-22,0 Z',         # diamond
+         'M0,-22 L19,-11 L19,11 L0,22 L-19,11 L-19,-11 Z']  # hex
+mix = [True, False, True, False, True]  # alternating filled
+for i, filled in enumerate(mix):
+    cx = 80 + i*60
+    cy = 150
+    if filled:
+        s += f'<rect x="{cx-20}" y="{cy-20}" width="40" height="40" rx="6" fill="{INK}"/>'
+    else:
+        s += f'<rect x="{cx-20}" y="{cy-20}" width="40" height="40" rx="6" fill="none" stroke="{INK}" stroke-width="2"/>'
+
+s += caption(40, 220, "동일 그리드 위지만 시각 무게가 들쭉날쭉")
+
+s += caption(440, 90, "✓ outlined 한 스타일 통일 — 같은 시스템으로 인지")
+for i in range(5):
+    cx = 480 + i*60
+    cy = 150
+    s += f'<rect x="{cx-20}" y="{cy-20}" width="40" height="40" rx="6" fill="none" stroke="{INK}" stroke-width="2"/>'
+
+s += caption(440, 220, "stroke 2px, radius 6, 같은 크기 — 한 호흡으로 읽힘")
+s += caption(40, 410, "→ Material·HIG 모두 한 화면 = 한 스타일 권장. filled/outlined 혼용은 카테고리 차이로 오해됨")
+save("02-2-similarity-icon-style", s)
+
+# ==================== 2.3 Common Region — Container variants ====================
+s = title(40, 50, "컨테이너 변형 — Modal / Bottom sheet / Popover")
+# Modal
+s += caption(40, 90, "Modal — 전체 scrim + 중앙 카드")
+s += f'<rect x="40" y="110" width="260" height="180" rx="10" fill="{FLOOR}" opacity="0.4"/>'
+s += f'<rect x="80" y="140" width="180" height="120" rx="10" fill="{WHITE}" stroke="{HI}"/>'
+s += f'<rect x="96" y="156" width="100" height="10" rx="5" fill="{INK}"/>'
+s += f'<rect x="96" y="174" width="148" height="6" rx="3" fill="{DOM}"/>'
+s += f'<rect x="96" y="186" width="120" height="6" rx="3" fill="{DOM}"/>'
+s += f'<rect x="200" y="222" width="46" height="22" rx="6" fill="{ACCENT}"/>'
+
+# Bottom sheet
+s += caption(320, 90, "Bottom sheet — 하단에서 슬라이드업")
+s += f'<rect x="320" y="110" width="260" height="180" rx="10" fill="{FLOOR}" opacity="0.2"/>'
+s += f'<path d="M320,200 L580,200 L580,290 L320,290 Z" fill="{WHITE}"/>'
+s += f'<rect x="436" y="210" width="28" height="4" rx="2" fill="{HI}"/>'
+s += f'<rect x="340" y="226" width="100" height="10" rx="5" fill="{INK}"/>'
+s += f'<rect x="340" y="244" width="220" height="6" rx="3" fill="{DOM}"/>'
+s += f'<rect x="340" y="256" width="180" height="6" rx="3" fill="{DOM}"/>'
+
+# Popover
+s += caption(600, 90, "Popover — 트리거 옆 작은 카드")
+s += f'<rect x="600" y="110" width="240" height="180" rx="10" fill="{BG}"/>'
+s += f'<rect x="616" y="170" width="68" height="32" rx="6" fill="{ACCENT}"/>'
+s += f'<text x="650" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="{WHITE}">설정</text>'
+s += f'<polygon points="710,176 720,164 720,188" fill="{WHITE}" stroke="{HI}"/>'
+s += f'<rect x="720" y="140" width="110" height="80" rx="8" fill="{WHITE}" stroke="{HI}"/>'
+s += f'<rect x="730" y="152" width="60" height="6" rx="3" fill="{INK}"/>'
+s += f'<rect x="730" y="166" width="90" height="5" rx="2.5" fill="{DOM}"/>'
+s += f'<rect x="730" y="178" width="70" height="5" rx="2.5" fill="{DOM}"/>'
+s += f'<rect x="730" y="190" width="80" height="5" rx="2.5" fill="{DOM}"/>'
+
+s += caption(40, 360, "scrim 강도: Modal(가장 강함) > Bottom sheet(부분) > Popover(없음). 사용자 주목 수준에 맞춰 선택")
+s += caption(40, 410, "→ 같은 공통영역 원리지만 위치·강도·태스크 흐름 차단 정도가 다름")
+save("02-3-common-region-containers", s)
+
+# ==================== 2.3 Common Region — Inline callouts ====================
+s = title(40, 50, "인라인 콜아웃 — 본문 안의 다른 영역")
+variants = [
+    ("ℹ︎", "정보", "#3B82F6", "관련 안내를 본문 흐름 안에서 강조"),
+    ("⚠︎", "경고", "#D97706", "주의가 필요한 내용 — 결과에 영향"),
+    ("💡", "팁", "#1F9D55", "권장 사항 또는 추가로 알면 좋은 내용"),
+    ("✕", "오류", "#C53434", "처리 실패 또는 잘못된 입력 안내"),
+]
+for i, (icon, lab, col, msg) in enumerate(variants):
+    y = 100 + i*70
+    s += f'<rect x="60" y="{y}" width="760" height="56" rx="8" fill="{col}" opacity="0.08"/>'
+    s += f'<rect x="60" y="{y}" width="4" height="56" fill="{col}"/>'
+    s += f'<text x="88" y="{y+30}" font-size="18" fill="{col}">{icon}</text>'
+    s += f'<text x="120" y="{y+24}" font-size="13" font-weight="700" fill="{col}">{lab}</text>'
+    s += f'<text x="120" y="{y+42}" font-size="12" fill="{INK}">{msg}</text>'
+s += caption(40, 410, "→ 좌측 색 바 + 옅은 배경 — 본문과 분리되지만 흐름은 깨지 않음")
+save("02-3-common-region-callout", s)
+
+# ==================== 2.4 Connectedness — Breadcrumb + Tree ====================
+s = title(40, 50, "브레드크럼 + 트리 — 계층의 연결 신호")
+# Breadcrumb
+s += caption(40, 90, "브레드크럼 — 구분자로 경로 연결")
+crumbs = ["홈", "설정", "알림", "이메일 알림"]
+x = 60
+for i, c in enumerate(crumbs):
+    fg = INK if i == len(crumbs)-1 else MID
+    fw = "700" if i == len(crumbs)-1 else "500"
+    s += f'<text x="{x}" y="135" font-size="13" font-weight="{fw}" fill="{fg}">{c}</text>'
+    x += len(c)*14 + 8
+    if i < len(crumbs)-1:
+        s += f'<text x="{x}" y="135" font-size="13" fill="{DOM}">›</text>'
+        x += 14
+
+# Tree
+s += caption(40, 190, "트리 — 들여쓰기 + 세로선으로 부모-자식 표시")
+tree_lines = [
+    (40, "▼ 디자인", True),
+    (60, "├ 컴포넌트", False),
+    (60, "│  ├ 버튼", False),
+    (60, "│  └ 입력", False),
+    (60, "└ 토큰", False),
+    (40, "▶ 개발", True),
+    (40, "▶ QA", True),
+]
+for i, (indent, label, bold) in enumerate(tree_lines):
+    y = 220 + i*26
+    fw = "700" if bold else "500"
+    s += f'<text x="{indent + 40}" y="{y}" font-size="13" font-weight="{fw}" font-family="ui-monospace,monospace" fill="{INK}">{label}</text>'
+s += caption(40, 410, "→ 둘 다 연결성 원리: 구분자나 들여쓰기 선이 계층 관계의 시각 신호")
+save("02-4-connectedness-breadcrumb-tree", s)
+
+# ==================== 2.4 Connectedness — Comment thread ====================
+s = title(40, 50, "댓글 스레드 — 들여쓰기 + 세로선으로 부모-자식 연결")
+threads = [
+    (60, "디자인 시안 좋네요!", "김지수", 0),
+    (100, "어떤 부분이 좋으셨어요?", "박민호", 1),
+    (140, "특히 색 시스템이요. 통일감 있어요.", "김지수", 2),
+    (140, "동의합니다. 토큰화도 잘 돼있어요.", "이서연", 2),
+    (60, "QA에서 빨리 확인 가능한가요?", "최우진", 0),
+]
+for i, (x, txt, who, depth) in enumerate(threads):
+    y = 110 + i*60
+    # connector lines for depth
+    for d in range(depth):
+        lx = 60 + d*40 + 14
+        s += f'<line x1="{lx}" y1="{y-30}" x2="{lx}" y2="{y+30}" stroke="{HI}" stroke-width="1.5"/>'
+    if depth > 0:
+        # horizontal joint
+        lx = 60 + (depth-1)*40 + 14
+        s += f'<line x1="{lx}" y1="{y+20}" x2="{x}" y2="{y+20}" stroke="{HI}" stroke-width="1.5"/>'
+    # avatar
+    s += f'<circle cx="{x+14}" cy="{y+20}" r="14" fill="{ACCENT}"/>'
+    s += f'<text x="{x+14}" y="{y+25}" text-anchor="middle" font-size="11" font-weight="700" fill="{WHITE}">{who[0]}</text>'
+    # comment bubble
+    s += f'<rect x="{x+36}" y="{y}" width="{740-x}" height="40" rx="8" fill="{WHITE}" stroke="{HI}"/>'
+    s += f'<text x="{x+52}" y="{y+17}" font-size="11" font-weight="700" fill="{INK}">{who}</text>'
+    s += f'<text x="{x+52}" y="{y+33}" font-size="12" fill="{MID}">{txt}</text>'
+s += caption(40, 420, "→ 세로선이 자식 댓글을 부모와 시각적으로 연결 — 들여쓰기만으로도 약하게 작동하지만 선이 추가되면 더 명확")
+save("02-4-connectedness-thread", s)
+
+# ==================== 2.5 Continuity — Grid alignment ====================
+s = title(40, 50, "그리드 정렬 — 시선이 흐르는 페이지 vs 어긋난 페이지")
+s += caption(40, 90, "✗ 어긋난 정렬 — 시선이 멈춤")
+# misaligned cards
+positions = [(50, 130), (240, 138), (60, 240), (235, 235)]
+for x, y in positions:
+    s += f'<rect x="{x}" y="{y}" width="140" height="80" rx="8" fill="{WHITE}" stroke="{HI}"/>'
+    s += f'<rect x="{x+12}" y="{y+12}" width="80" height="10" rx="5" fill="{INK}"/>'
+    s += f'<rect x="{x+12}" y="{y+28}" width="100" height="6" rx="3" fill="{DOM}"/>'
+
+s += caption(40, 350, "x좌표 2–8px씩 어긋남 — 보이지 않게 거슬림")
+
+s += caption(440, 90, "✓ 그리드 정렬 — 시선이 매끄럽게 흐름")
+positions2 = [(460, 130), (620, 130), (460, 240), (620, 240)]
+for x, y in positions2:
+    s += f'<rect x="{x}" y="{y}" width="140" height="80" rx="8" fill="{WHITE}" stroke="{HI}"/>'
+    s += f'<rect x="{x+12}" y="{y+12}" width="80" height="10" rx="5" fill="{INK}"/>'
+    s += f'<rect x="{x+12}" y="{y+28}" width="100" height="6" rx="3" fill="{DOM}"/>'
+# alignment guides
+s += f'<line x1="460" y1="120" x2="460" y2="330" stroke="{ACCENT}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>'
+s += f'<line x1="620" y1="120" x2="620" y2="330" stroke="{ACCENT}" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>'
+s += caption(440, 350, "동일 x축에 정렬 — 좌측 가장자리가 한 줄로 흐름")
+
+s += caption(40, 410, "→ 2–4px 어긋남은 명시적 오류보다 더 거슬리는 잠재의식 부담 — 8pt 그리드로 자동 정렬 권장")
+save("02-5-continuity-alignment", s)
+
+# ==================== 2.7 Figure-Ground — Scrim over image ====================
+s = title(40, 50, "이미지 위 텍스트 — scrim으로 figure-ground 보강")
+# Left: no scrim
+s += caption(40, 90, "✗ scrim 없음 — 텍스트 묻힘")
+s += f'<rect x="40" y="110" width="380" height="240" rx="10" fill="{DOM}"/>'
+# striped pattern simulating image complexity
+for i in range(0, 380, 8):
+    s += f'<rect x="{40+i}" y="110" width="4" height="240" fill="{MID}" opacity="0.5"/>'
+s += f'<text x="60" y="170" font-size="22" font-weight="800" fill="{WHITE}" opacity="0.6">캠페인 시작</text>'
+s += f'<text x="60" y="200" font-size="13" fill="{WHITE}" opacity="0.6">매주 화요일 추첨</text>'
+s += f'<rect x="60" y="240" width="120" height="36" rx="8" fill="{WHITE}" opacity="0.5"/>'
+s += f'<text x="120" y="263" text-anchor="middle" font-size="12" font-weight="700" fill="{INK}" opacity="0.6">자세히 →</text>'
+
+# Right: with gradient scrim
+s += caption(440, 90, "✓ 그라디언트 scrim — 텍스트 영역만 어둡게")
+s += f'<rect x="440" y="110" width="380" height="240" rx="10" fill="{DOM}"/>'
+for i in range(0, 380, 8):
+    s += f'<rect x="{440+i}" y="110" width="4" height="240" fill="{MID}" opacity="0.5"/>'
+# gradient overlay (linear bottom-up)
+s += '<defs><linearGradient id="scrim" x1="0" y1="1" x2="0" y2="0">'
+s += '<stop offset="0" stop-color="#000" stop-opacity="0.7"/>'
+s += '<stop offset="0.6" stop-color="#000" stop-opacity="0.3"/>'
+s += '<stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient></defs>'
+s += f'<rect x="440" y="110" width="380" height="240" rx="10" fill="url(#scrim)"/>'
+s += f'<text x="460" y="260" font-size="22" font-weight="800" fill="{WHITE}">캠페인 시작</text>'
+s += f'<text x="460" y="285" font-size="13" fill="{WHITE}">매주 화요일 추첨</text>'
+s += f'<rect x="460" y="305" width="120" height="36" rx="8" fill="{ACCENT}"/>'
+s += f'<text x="520" y="328" text-anchor="middle" font-size="12" font-weight="700" fill="{WHITE}">자세히 →</text>'
+
+s += caption(40, 410, "→ 텍스트가 놓일 영역만 어둡게 처리 — 이미지 인지는 유지하면서 가독성 확보")
+save("02-7-figure-ground-scrim", s)
+
+# ==================== 2.7 Figure-Ground — CTA emphasis levels ====================
+s = title(40, 50, "CTA 강조 단계 — figure로 떠오르는 정도")
+# Page mock with header + content + footer CTA
+def page_with_cta(x0, label, cta_type):
+    out = f'<rect x="{x0}" y="100" width="260" height="280" rx="10" fill="{WHITE}" stroke="{HI}"/>'
+    out += f'<rect x="{x0+16}" y="120" width="100" height="12" rx="4" fill="{INK}"/>'
+    out += f'<rect x="{x0+16}" y="148" width="228" height="6" rx="3" fill="{DOM}"/>'
+    out += f'<rect x="{x0+16}" y="162" width="200" height="6" rx="3" fill="{DOM}"/>'
+    out += f'<rect x="{x0+16}" y="176" width="220" height="6" rx="3" fill="{DOM}"/>'
+    out += f'<rect x="{x0+16}" y="200" width="180" height="80" rx="6" fill="{HI}"/>'
+    # CTA
+    cy = 320
+    if cta_type == 'low':
+        out += f'<text x="{x0+130}" y="{cy+18}" text-anchor="middle" font-size="12" font-weight="600" fill="{ACCENT}">자세히 보기 →</text>'
+    elif cta_type == 'mid':
+        out += f'<rect x="{x0+70}" y="{cy}" width="120" height="36" rx="8" fill="{WHITE}" stroke="{ACCENT}" stroke-width="1.5"/>'
+        out += f'<text x="{x0+130}" y="{cy+23}" text-anchor="middle" font-size="12" font-weight="700" fill="{ACCENT}">시작하기</text>'
+    elif cta_type == 'high':
+        out += f'<rect x="{x0+70}" y="{cy-2}" width="120" height="40" rx="8" fill="{ACCENT}"/>'
+        out += f'<text x="{x0+130}" y="{cy+23}" text-anchor="middle" font-size="13" font-weight="800" fill="{WHITE}">지금 시작</text>'
+    out += f'<text x="{x0+130}" y="{cy+62}" text-anchor="middle" font-size="11" fill="{MID}">{label}</text>'
+    return out
+
+s += page_with_cta(60, "텍스트 링크 — 최소 강조", 'low')
+s += page_with_cta(310, "outline — 보조 액션", 'mid')
+s += page_with_cta(560, "fill — 주요 액션 (가장 강한 figure)", 'high')
+s += caption(40, 420, "→ 한 화면에 fill CTA는 1–2개로 절제. 그 이상이면 모두 평등해져 전경이 사라짐")
+save("02-7-figure-ground-cta", s)
+
+# ==================== 2.8 Common Fate — Drag multi-select ====================
+s = title(40, 50, "드래그 다중선택 — 함께 움직이면 한 그룹")
+# Left: items + selection rect appearing
+s += caption(40, 90, "[프레임 A] 다중 선택 영역 드래그")
+items = [(0,0),(1,0),(2,0),(0,1),(1,1),(2,1),(0,2),(1,2),(2,2)]
+selected = {(0,0),(1,0),(0,1),(1,1)}
+for col, row in items:
+    x, y = 60 + col*70, 130 + row*70
+    sel = (col,row) in selected
+    fill = TINT if sel else WHITE
+    stroke = ACCENT if sel else HI
+    sw = "2" if sel else "1"
+    s += f'<rect x="{x}" y="{y}" width="56" height="56" rx="6" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"/>'
+# selection rect dashed
+s += f'<rect x="58" y="128" width="142" height="142" rx="4" fill="none" stroke="{ACCENT}" stroke-width="2" stroke-dasharray="5 4"/>'
+
+# Right: items moving together
+s += caption(440, 90, "[프레임 B] 함께 드래그 → 한 묶음으로 인지")
+for col, row in items:
+    if (col,row) in selected:
+        x, y = 460 + col*70 + 24, 130 + row*70 + 24
+    else:
+        x, y = 460 + col*70, 130 + row*70
+    sel = (col,row) in selected
+    fill = TINT if sel else WHITE
+    stroke = ACCENT if sel else HI
+    sw = "2" if sel else "1"
+    s += f'<rect x="{x}" y="{y}" width="56" height="56" rx="6" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"/>'
+# motion trails for selected items
+for col, row in selected:
+    x0, y0 = 460 + col*70 + 28, 130 + row*70 + 28
+    s += f'<line x1="{x0-24}" y1="{y0-24}" x2="{x0}" y2="{y0}" stroke="{ACCENT}" stroke-width="2" stroke-dasharray="3 3" opacity="0.5"/>'
+
+s += caption(40, 410, "→ 동시·동일 방향으로 움직이는 요소는 시각 시스템이 자동으로 한 그룹으로 묶음")
+save("02-8-common-fate-drag-select", s)
+
+# ==================== 2.8 Common Fate — Pull to refresh ====================
+s = title(40, 50, "Pull to refresh — 콘텐츠가 함께 끌려옴")
+# Three frames showing progression
+frames = [
+    (60, "[A] 시작 — 손가락 아래로", 0),
+    (320, "[B] 끌어내림 — 콘텐츠 함께 이동", 30),
+    (580, "[C] 임계 → 새로고침 시작", 60),
+]
+for x0, label, drag in frames:
+    s += caption(x0, 90, label)
+    s += f'<rect x="{x0}" y="110" width="200" height="270" rx="14" fill="{WHITE}" stroke="{HI}"/>'
+    # status bar
+    s += f'<rect x="{x0}" y="110" width="200" height="24" rx="0" fill="{BG}"/>'
+    # pull indicator area
+    if drag > 0:
+        s += f'<circle cx="{x0+100}" cy="{135 + drag - 20}" r="14" fill="none" stroke="{ACCENT}" stroke-width="3" stroke-dasharray="{drag*1.5} 100"/>'
+    # content shifted down
+    for i in range(5):
+        y = 145 + drag + i*40
+        if y > 360: break
+        s += f'<rect x="{x0+16}" y="{y}" width="60" height="10" rx="5" fill="{INK}"/>'
+        s += f'<rect x="{x0+16}" y="{y+16}" width="160" height="6" rx="3" fill="{DOM}"/>'
+        s += f'<rect x="{x0+16}" y="{y+26}" width="120" height="6" rx="3" fill="{DOM}"/>'
+s += caption(40, 410, "→ 콘텐츠가 손가락과 함께 움직이며 임계점에서 새로고침 트리거 — 자연스러운 메타포")
+save("02-8-common-fate-pull-refresh", s)
+
+# ==================== 2.9 Symmetry — Symmetric vs asymmetric balance ====================
+s = title(40, 50, "대칭 vs 비대칭 균형 — 시각 무게의 분배")
+# Left: symmetric
+s += caption(40, 90, "대칭 균형 — 정적·격식")
+cx_left = 220
+s += f'<line x1="{cx_left}" y1="110" x2="{cx_left}" y2="370" stroke="{HI}" stroke-width="1" stroke-dasharray="4 4"/>'
+# centered title
+s += f'<rect x="{cx_left-90}" y="130" width="180" height="18" rx="4" fill="{INK}"/>'
+s += f'<rect x="{cx_left-70}" y="160" width="140" height="8" rx="4" fill="{DOM}"/>'
+# centered image
+s += f'<rect x="{cx_left-80}" y="190" width="160" height="100" rx="8" fill="{HI}"/>'
+# centered CTA
+s += f'<rect x="{cx_left-50}" y="310" width="100" height="36" rx="8" fill="{ACCENT}"/>'
+s += f'<text x="{cx_left}" y="333" text-anchor="middle" font-size="12" font-weight="700" fill="{WHITE}">시작</text>'
+
+# Right: asymmetric
+s += caption(440, 90, "비대칭 균형 — 동적·현대적 (광학 무게 균형)")
+# left big image
+s += f'<rect x="460" y="130" width="180" height="200" rx="10" fill="{HI}"/>'
+# right small stack
+s += f'<rect x="660" y="130" width="160" height="14" rx="4" fill="{INK}"/>'
+s += f'<rect x="660" y="156" width="120" height="14" rx="4" fill="{INK}"/>'
+s += f'<rect x="660" y="186" width="160" height="6" rx="3" fill="{DOM}"/>'
+s += f'<rect x="660" y="200" width="140" height="6" rx="3" fill="{DOM}"/>'
+s += f'<rect x="660" y="214" width="155" height="6" rx="3" fill="{DOM}"/>'
+s += f'<rect x="660" y="250" width="100" height="34" rx="8" fill="{ACCENT}"/>'
+s += f'<text x="710" y="271" text-anchor="middle" font-size="12" font-weight="700" fill="{WHITE}">시작</text>'
+
+s += caption(40, 410, "→ 큰 이미지(좌)와 텍스트 블록 3개+CTA(우)가 광학적으로 균형 — 시각 무게가 같으면 비대칭도 안정")
+save("02-9-symmetry-balance", s)
+
+# ==================== 2.9 Symmetry — Optical centering ====================
+s = title(40, 50, "광학적 중심 — 기하 중심 vs 시각 중심")
+# Three icons: triangle, play button, square showing optical adjustment
+import math as _m
+
+# Triangle
+s += caption(60, 90, "삼각형 — 기하 중심 = 위로 치우쳐 보임")
+s += f'<circle cx="160" cy="200" r="60" fill="{WHITE}" stroke="{HI}"/>'
+# triangle at geometric center
+s += f'<polygon points="160,170 138,225 182,225" fill="{INK}"/>'
+s += caption(60, 290, "기하적으로는 중앙이지만 시각적으로 ▲ 무게가 아래")
+
+s += caption(320, 90, "광학 중심 보정 — 4–6px 아래로")
+s += f'<circle cx="420" cy="200" r="60" fill="{WHITE}" stroke="{ACCENT}" stroke-width="2"/>'
+s += f'<polygon points="420,176 398,231 442,231" fill="{ACCENT}"/>'
+s += f'<line x1="420" y1="200" x2="420" y2="210" stroke="{ACCENT}" stroke-width="1" stroke-dasharray="2 2"/>'
+s += caption(320, 290, "5px 아래로 이동 → 원 중심에 안착해 보임")
+
+s += caption(580, 90, "재생 아이콘 — 같은 원리, 4–8px 우측 보정")
+s += f'<circle cx="680" cy="200" r="60" fill="{WHITE}" stroke="{ACCENT}" stroke-width="2"/>'
+s += f'<polygon points="664,176 700,200 664,224" fill="{ACCENT}"/>'
+s += caption(580, 290, "꼭짓점이 오른쪽 → 우측으로 살짝 이동해 균형")
+s += caption(40, 410, "→ 기하 중심과 시각 중심은 다름. 비대칭 도형은 무게 중심을 향해 미세 보정이 필요")
+save("02-9-symmetry-optical-center", s)
